@@ -96,6 +96,8 @@ struct mainView: View{//show settings
 
     var body: some View {
         VStack{
+            
+            
             Button(action: {
                 viewModel.signOut()
             }, label: {
@@ -106,6 +108,9 @@ struct mainView: View{//show settings
                     .cornerRadius(8)
                     .padding()
             })
+            
+            
+            
         }
     }
 }
