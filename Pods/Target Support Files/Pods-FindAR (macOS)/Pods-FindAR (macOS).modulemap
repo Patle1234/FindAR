@@ -1,0 +1,6 @@
+framework module Pods_FindAR__macOS_ {
+  umbrella header "Pods-FindAR (macOS)-umbrella.h"
+
+  export *
+  module * { export * }
+}
