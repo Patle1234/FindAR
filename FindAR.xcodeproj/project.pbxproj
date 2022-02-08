@@ -22,6 +22,8 @@
 		3DD2031A27AD6E5A003D0CBB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD202F027AD6E5A003D0CBB /* ContentView.swift */; };
 		3DD2031B27AD6E5A003D0CBB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DD202F127AD6E5A003D0CBB /* Assets.xcassets */; };
 		3DD2031C27AD6E5A003D0CBB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DD202F127AD6E5A003D0CBB /* Assets.xcassets */; };
+		A094717B27B1F382003F3C94 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A094717A27B1F382003F3C94 /* CardView.swift */; };
+		A094717C27B1F382003F3C94 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A094717A27B1F382003F3C94 /* CardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,7 @@
 		614F015973087294037996AE /* Pods-FindAR (iOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindAR (iOS).debug.xcconfig"; path = "Target Support Files/Pods-FindAR (iOS)/Pods-FindAR (iOS).debug.xcconfig"; sourceTree = "<group>"; };
 		6ADA16A0758B6A258A1B518E /* Pods-FindAR (macOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindAR (macOS).release.xcconfig"; path = "Target Support Files/Pods-FindAR (macOS)/Pods-FindAR (macOS).release.xcconfig"; sourceTree = "<group>"; };
 		7FE6F56D43509F614F7EFBCB /* Pods_FindAR__iOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FindAR__iOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A094717A27B1F382003F3C94 /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		F01ABF988A9B74A1F52E155C /* Pods_FindAR__macOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FindAR__macOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -126,10 +129,11 @@
 		3DD202EE27AD6E5A003D0CBB /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				3DD202EF27AD6E5A003D0CBB /* FindARApp.swift */,
+				A094717A27B1F382003F3C94 /* CardView.swift */,
 				3DD202F027AD6E5A003D0CBB /* ContentView.swift */,
-				3DD202F127AD6E5A003D0CBB /* Assets.xcassets */,
+				3DD202EF27AD6E5A003D0CBB /* FindARApp.swift */,
 				3D60E08B27AE47160077616F /* SignIn.swift */,
+				3DD202F127AD6E5A003D0CBB /* Assets.xcassets */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -426,6 +430,7 @@
 			files = (
 				3DD2031927AD6E5A003D0CBB /* ContentView.swift in Sources */,
 				3D60E08C27AE47160077616F /* SignIn.swift in Sources */,
+				A094717B27B1F382003F3C94 /* CardView.swift in Sources */,
 				3DD2031727AD6E5A003D0CBB /* FindARApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -436,6 +441,7 @@
 			files = (
 				3DD2031A27AD6E5A003D0CBB /* ContentView.swift in Sources */,
 				3D60E08D27AE47160077616F /* SignIn.swift in Sources */,
+				A094717C27B1F382003F3C94 /* CardView.swift in Sources */,
 				3DD2031827AD6E5A003D0CBB /* FindARApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

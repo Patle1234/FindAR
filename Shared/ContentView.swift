@@ -20,6 +20,7 @@ struct ContentView: View {
             }
         }
         .onAppear{
+            //REMOVE THE ! LATER ON
             viewModel.signedIn = viewModel.isSignedIn
         }
     }
@@ -31,15 +32,19 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
+//initial sign in view
 struct SignInView: View {
     @State var email=""
     @State var password=""
     @EnvironmentObject var viewModel: SignIn
-    
+
     var body: some View {
+
         VStack{
-            let _=print("in the thign here")
+           
+//            let _=print("in the thign here")
             VStack{
+               
                 TextField("Email Address",text: $email)
                     .disableAutocorrection(true)
                     .autocapitalization(.none)
@@ -52,11 +57,11 @@ struct SignInView: View {
                     .autocapitalization(.none)
                     .font(Font.system(size: 25, design: .default))
                     .cornerRadius(8)
-                    .foregroundColor(Color.black) 
+                    .foregroundColor(Color.black)
                     .foregroundColor(Color("LightYellow"))
                     .background(Color("DarkPurple"))
                     .padding()
-                
+
                 Button(action: {
                     guard !email.isEmpty, !password.isEmpty else {//if the textfields are empty
                         return
@@ -66,7 +71,7 @@ struct SignInView: View {
                     Text("Sign In")
                         .frame(width: 200, height: 50, alignment: .center)
                         .cornerRadius(8)
-                    
+
                 })
                 NavigationLink("Create Account", destination: SignUpView())
                     .padding()
@@ -75,6 +80,9 @@ struct SignInView: View {
             }
             .padding()
             Color("LightPurple")
+
+
+
         }
         .background(Color("LightPurple"))
         .navigationTitle("Sign In")
@@ -90,40 +98,16 @@ struct SignInView: View {
 
 
 
-
-struct mainView: View{//show settings
-    @EnvironmentObject var viewModel: SignIn
-
-    var body: some View {
-        VStack{
-            
-            
-            Button(action: {
-                viewModel.signOut()
-            }, label: {
-                Text("Sign Out")
-                    .frame(width:250, height:75)
-                    .background(Color.black)
-                    .foregroundColor(Color.blue)
-                    .cornerRadius(8)
-                    .padding()
-            })
-            
-            
-            
-        }
-    }
-}
-
+//sign up create account view
 struct SignUpView: View {
     @State var email=""
     @State var password=""
     @State var firstName=""
     @State var lastName=""
     @State var uName=""
-    
+
     @EnvironmentObject var viewModel: SignIn
-    
+
     var body: some View {
         VStack{
             VStack{
@@ -134,7 +118,7 @@ struct SignUpView: View {
                     .font(Font.system(size: 25, design: .default))
                     .cornerRadius(8)
                     .padding()
-    
+
                 TextField("User Name",text: $uName)
                     .disableAutocorrection(true)
                     .autocapitalization(.none)
@@ -160,14 +144,124 @@ struct SignUpView: View {
                     Text("Sign Up")
                         .foregroundColor(Color.blue)
                         .cornerRadius(8)
-                        
+
                 })
                     .padding()
-                
+
             }
             .padding()
             //Color("LightPurple")
         }
         .navigationTitle("Create Account").foregroundColor(Color("LightYellow"))
+    }
+}
+
+
+
+
+
+
+
+//struct SignInView: View {
+//    var body: some View {
+//
+//        Button("Joe", action: {
+//                           print("?")
+//
+//
+//                       }
+//    )}
+//}
+
+
+
+
+
+
+
+
+
+
+
+
+struct Card: Identifiable {
+    let id = UUID()
+    let name: String
+    let imageName: String
+    let age: Int
+    let company: String
+    /// Card x position
+    var x: CGFloat = 0.0
+    /// Card y position
+    var y: CGFloat = 0.0
+    /// Card rotation angle
+    var degree: Double = 0.0
+    
+    static var data: [Card] {
+        [
+            Card(name: "Treadmill", imageName: "treadmill", age: 21, company: "Athletico"),
+            Card(name: "Dumbbell", imageName: "dumbbell", age: 23, company: "Pena's Weights Inc.")
+//            Card(name: "Abigail", imageName: "p2", age: 26, bio: "hi, let's be friends"),
+//            Card(name: "Zoé", imageName: "p3", age: 20, bio: "Law grad"),
+//            Card(name: "Tilly", imageName: "p4", age: 21, bio: "Follow me on IG"),
+//            Card(name: "Penny", imageName: "p5", age: 24, bio: "J'aime la vie et le vin 🍷"),
+        ]
+    }
+    
+}
+
+
+
+
+//main view shown after signing in
+
+struct mainView: View{//show settings
+    @EnvironmentObject var viewModel: SignIn
+    
+   
+    var body: some View {
+        
+//        Color.green.ignoresSafeArea()
+        
+//        VStack{
+           
+                ZStack{
+                    
+                    ForEach(Card.data.reversed()) { card in
+                        CardView(card: card)
+                    }
+                }.frame(width: 320, height: 320, alignment: .center)
+                .padding(8)
+                .zIndex(1.0)
+                
+            
+            
+            
+            
+                
+            
+                Button(action: {
+                  
+                    viewModel.signOut()
+                }, label: {
+                    Text("Sign Out")
+                        .frame(width:100, height:30)
+                        .background(Color.black)
+                        .foregroundColor(Color.blue)
+                        .cornerRadius(8)
+                        .padding()
+                        
+                      
+                }).position(x: 326, y: -220)
+                
+                
+                
+            
+//        }.background(Color.gray)
+//            .frame(width: 350, height: 420, alignment: .center)
+//
+//            .cornerRadius(8)
+//
+//            .position(x: 193, y: 180)
     }
 }
