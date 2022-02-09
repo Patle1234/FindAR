@@ -200,8 +200,8 @@ struct Card: Identifiable {
     static var data: [Card] {
         [
             Card(name: "Treadmill", imageName: "treadmill", age: 21, company: "Athletico"),
-            Card(name: "Dumbbell", imageName: "dumbbell", age: 23, company: "Pena's Weights Inc.")
-//            Card(name: "Abigail", imageName: "p2", age: 26, bio: "hi, let's be friends"),
+            Card(name: "Dumbbell", imageName: "dumbbell", age: 23, company: "Pena's Weights Inc."),
+            Card(name: "Bike", imageName: "bike", age: 26, company: "Lifetime Fitness")
 //            Card(name: "Zoé", imageName: "p3", age: 20, bio: "Law grad"),
 //            Card(name: "Tilly", imageName: "p4", age: 21, bio: "Follow me on IG"),
 //            Card(name: "Penny", imageName: "p5", age: 24, bio: "J'aime la vie et le vin 🍷"),
@@ -230,9 +230,10 @@ struct mainView: View{//show settings
                     ForEach(Card.data.reversed()) { card in
                         CardView(card: card)
                     }
-                }.frame(width: 320, height: 320, alignment: .center)
+                }.frame(width: 370, height: 370, alignment: .center)
                 .padding(8)
                 .zIndex(1.0)
+                .offset(y: -150)
                 
             
             
