@@ -221,20 +221,20 @@ struct mainView: View{//show settings
    
     var body: some View {
         
-//        Color.green.ignoresSafeArea()
         
-//        VStack{
+        
+        VStack{
            
                 ZStack{
-                    
+                  
                     ForEach(Card.data.reversed()) { card in
                         CardView(card: card)
                     }
-                }.frame(width: 370, height: 370, alignment: .center)
+                }.frame(width: 350, height: 350, alignment: .center)
                 .padding(8)
                 .zIndex(1.0)
-                .offset(y: -150)
-                
+                .offset(y: -50)
+//                .background(.gray)
             
             
             
@@ -258,7 +258,7 @@ struct mainView: View{//show settings
                 
                 
             
-//        }.background(Color.gray)
+        }.background(Color(red: 0.785, green: 0.785, blue: 0.785))
 //            .frame(width: 350, height: 420, alignment: .center)
 //
 //            .cornerRadius(8)

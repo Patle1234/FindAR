@@ -49,7 +49,7 @@ struct CardView: View {
             }
             
         }
-        .background(.gray)
+        .background(.white)
         .cornerRadius(8)
         .offset(x: card.x, y: card.y)
         .rotationEffect(.init(degrees: card.degree))
@@ -61,11 +61,12 @@ struct CardView: View {
                         card.x = value.translation.width
                         // MARK: - BUG 5
                         card.y = value.translation.height
-                        card.degree = 7 * (value.translation.width > 0 ? 1 : -1)
+//                        card.degree = 1.5 * (value.translation.width > 0 ? 1 : -1)
+                        card.degree = 0.02 * (value.translation.width)
                     }
                 }
                 .onEnded { (value) in
-                    withAnimation(.interpolatingSpring(mass: 1.0, stiffness: 50, damping: 8, initialVelocity: 0)) {
+                    withAnimation(.interpolatingSpring(mass: 1.0, stiffness: 100, damping: 10, initialVelocity: 0)) {
                         switch value.translation.width {
                         case 0...100:
                             card.x = 0; card.degree = 0; card.y = 0
