@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct ContentView: View {
     @EnvironmentObject var viewModel: SignIn
@@ -16,7 +17,7 @@ struct ContentView: View {
                 mainView()
 
             }else{
-                SignInView()
+                enterView()
             }
         }
         .onAppear{
@@ -33,67 +34,144 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 //initial sign in view
-struct SignInView: View {
-    @State var email=""
-    @State var password=""
-    @EnvironmentObject var viewModel: SignIn
+struct enterView: View {
+    @State var index=0
+    @Namespace var name
 
     var body: some View {
-
         VStack{
-           
-//            let _=print("in the thign here")
-            VStack{
-               
-                TextField("Email Address",text: $email)
-                    .disableAutocorrection(true)
-                    .autocapitalization(.none)
-                    .font(Font.system(size: 25, design: .default))
-                    .cornerRadius(8)
-                    .foregroundColor(Color.black)
-                    .padding()
-                SecureField("Password", text: $password)
-                    .disableAutocorrection(true)
-                    .autocapitalization(.none)
-                    .font(Font.system(size: 25, design: .default))
-                    .cornerRadius(8)
-                    .foregroundColor(Color.black)
-                    .foregroundColor(Color("LightYellow"))
-                    .background(Color("DarkPurple"))
-                    .padding()
+        HStack{
+            Button(action: {
+                withAnimation(.spring()){
+                    index = 0
+                }
+            }, label: {
+                //Sign IN
+                VStack{
+                    Text("Login")
+                        .font(.system(size: 20))
+                        .fontWeight(.bold)
+                        .foregroundColor(index == 0 ? .black: .gray)
+                    
 
-                Button(action: {
-                    guard !email.isEmpty, !password.isEmpty else {//if the textfields are empty
-                        return
+                    
+                    ZStack{
+                        Capsule()
+                            .fill(Color.black.opacity(0.04))
+                            .frame(height:4)
+                        
+                        if index==0{
+                            Capsule()
+                                .fill(Color.black)
+                                .frame(height:4)
+                                .matchedGeometryEffect(id: "Tab", in: name)
+                        }
+                        
+                        
                     }
-                    viewModel.signIn(email: email, password: password)
-                }, label: {
-                    Text("Sign In")
-                        .frame(width: 200, height: 50, alignment: .center)
-                        .cornerRadius(8)
+                    
+                }
+            })
+            
+            Button(action: {
+                withAnimation(.spring()){
+                    index = 1
+                }
+            }, label: {
+                VStack{
+                    
+                    
+                    Text("Sign Up")
+                        .font(.system(size: 20))
+                        .fontWeight(.bold)
+                        .foregroundColor(index == 1 ? .black: .gray)
+                    ZStack{
+                        Capsule()
+                            .fill(Color.black.opacity(0.04))
+                            .frame(height: 4)
+                        
+                        if index==1{
+                            Capsule()
+                                .fill(Color.black)
+                                .frame(height:4)
+                                .matchedGeometryEffect(id: "Tab", in: name)
+                        }
+                        
 
-                })
-                NavigationLink("Create Account", destination: SignUpView())
-                    .padding()
-                    .frame(width: 200, height: 50, alignment: .center)
-                    .cornerRadius(8)
-            }
-            .padding()
-            Color("LightPurple")
-
-
-
+                    }
+                    //.fill(Color.black)
+                    
+                }
+            })
+            
+            
+            
         }
-        .background(Color("LightPurple"))
-        .navigationTitle("Sign In")
+       // .padding(.top,30)
+         
+        //Spacer()
+            
+            if index==0{
+                SignInView()
+            }else if index==1{
+                SignUpView()
+            }
+            
+        }
+        
+        
+        
     }
 }
 
 
 
 
-
-
+struct SignInView: View {
+    @State var email=""
+    @State var password=""
+    @EnvironmentObject var viewModel: SignIn
+    
+    var body: some View {
+                VStack{
+                    VStack{
+                        TextField("Email Address",text: $email)
+                            .disableAutocorrection(true)
+                            .autocapitalization(.none)
+                            .font(Font.system(size: 25, design: .default))
+                            .cornerRadius(8)
+                            .foregroundColor(Color.black)
+                            .padding()
+                        SecureField("Password", text: $password)
+                            .disableAutocorrection(true)
+                            .autocapitalization(.none)
+                            .font(Font.system(size: 25, design: .default))
+                            .cornerRadius(8)
+                            .foregroundColor(Color.black)
+                            .foregroundColor(Color("LightYellow"))
+                            .background(Color("DarkPurple"))
+                            .padding()
+        
+                        Button(action: {
+                            guard !email.isEmpty, !password.isEmpty else {//if the textfields are empty
+                                return
+                            }
+                            viewModel.signIn(email: email, password: password)
+                        }, label: {
+                            Text("Sign In")
+                                .frame(width: 200, height: 50, alignment: .center)
+                                .cornerRadius(8)
+        
+                        })
+//                        NavigationLink("Create Account", destination: SignUpView())
+//                            .padding()
+//                            .frame(width: 200, height: 50, alignment: .center)
+//                            .cornerRadius(8)
+                    }
+                    .padding()
+                }
+    }
+}
 
 
 
@@ -152,7 +230,7 @@ struct SignUpView: View {
             .padding()
             //Color("LightPurple")
         }
-        .navigationTitle("Create Account").foregroundColor(Color("LightYellow"))
+        //.navigationTitle("Create Account").foregroundColor(Color("LightYellow"))
     }
 }
 
@@ -201,30 +279,129 @@ struct Card: Identifiable {
         [
             Card(name: "Treadmill", imageName: "treadmill", age: 21, company: "Athletico"),
             Card(name: "Dumbbell", imageName: "dumbbell", age: 23, company: "Pena's Weights Inc."),
-            Card(name: "Bike", imageName: "bike", age: 26, company: "Lifetime Fitness")
-//            Card(name: "Zoé", imageName: "p3", age: 20, bio: "Law grad"),
-//            Card(name: "Tilly", imageName: "p4", age: 21, bio: "Follow me on IG"),
-//            Card(name: "Penny", imageName: "p5", age: 24, bio: "J'aime la vie et le vin 🍷"),
-        ]
+            Card(name: "Bike", imageName: "bike", age: 26, company: "Lifetime Fitness")        ]
     }
     
+}
+struct cardView: View{
+    var body: some View {
+        ZStack{
+            
+            ForEach(Card.data.reversed()) { card in
+                CardView(card: card)
+            }
+            
+            
+        }.frame(width: 350, height: 550, alignment: .center)
+        .padding(8)
+        .zIndex(1.0)
+        .offset(y: -150)
+    }
+}
+
+
+struct settingsView: View{//show settings
+    @EnvironmentObject var viewModel: SignIn
+    @ObservedObject var userRepo = UserRepository()
+    @ObservedObject var userVM = UserListViewModel()
+    @State var currentPerson:User
+    
+    var body: some View {
+        VStack{
+            Button(action: {
+                viewModel.signOut()
+
+            }, label: {
+                Text("Sign Out")
+                    .frame(width:100, height:30)
+                    .background(Color.black)
+                    .foregroundColor(Color.blue)
+                    .cornerRadius(8)
+                    .padding()
+                    
+                  
+            })
+            
+            Button(action: {
+                userVM.deleteUser(user: currentPerson)
+                viewModel.signOut()
+            }, label: {
+                Text("Delete Account")
+                    .frame(width:100, height:30)
+                    .background(Color.black)
+                    .foregroundColor(Color.red)
+                    .cornerRadius(8)
+                    .padding()
+                    
+                  
+            })
+            
+        }
+        
+    }
 }
 
 
 
 
-//main view shown after signing in
-
-struct mainView: View{//show settings
+struct mainView: View{
     @EnvironmentObject var viewModel: SignIn
-    
+    @ObservedObject var userVM = UserListViewModel()//list object
+    let userID=Auth.auth().currentUser?.uid
    
     var body: some View {
+<<<<<<< Updated upstream
         
         
+=======
+<<<<<<< HEAD
+
+//        Button(action: {
+//            viewModel.signOut()
+//
+//        }, label: {
+//            Text("Sign Out")
+//                .frame(width:100, height:30)
+//                .background(Color.black)
+//                .foregroundColor(Color.blue)
+//                .cornerRadius(8)
+//                .padding()
+//                
+//              
+//        })
+        TabView{
+                    cardView()
+                        .tabItem({
+                            Text("Cards")
+                            Image(systemName:"menucard")
+                        })
+
+            ForEach(userVM.UserCellViewModels){currentUser in
+                if((currentUser.user.userId)==userID){
+                    let _=print("helloji")
+                    settingsView(currentPerson: currentUser.user)
+                        .tabItem({
+                            Image(systemName:"gear")
+                            Text("Settings")
+                        })
+                }
+            }
+            
+        }
+            
+//        Color.green.ignoresSafeArea()
+=======
+        
+>>>>>>> 184a7de36e235feb19c7ffce9eed512f15296b00
+        
+>>>>>>> Stashed changes
         
         VStack{
            
+<<<<<<< HEAD
+
+                
+=======
                 ZStack{
                   
                     ForEach(Card.data.reversed()) { card in
@@ -235,25 +412,17 @@ struct mainView: View{//show settings
                 .zIndex(1.0)
                 .offset(y: -50)
 //                .background(.gray)
+<<<<<<< Updated upstream
+=======
+>>>>>>> 184a7de36e235feb19c7ffce9eed512f15296b00
+>>>>>>> Stashed changes
             
             
             
             
                 
             
-                Button(action: {
-                  
-                    viewModel.signOut()
-                }, label: {
-                    Text("Sign Out")
-                        .frame(width:100, height:30)
-                        .background(Color.black)
-                        .foregroundColor(Color.blue)
-                        .cornerRadius(8)
-                        .padding()
-                        
-                      
-                }).position(x: 326, y: -220)
+
                 
                 
                 

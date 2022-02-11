@@ -7,6 +7,7 @@
 
 import Foundation
 import FirebaseAuth
+import SwiftUI
 
 
 class SignIn: ObservableObject {
@@ -33,9 +34,8 @@ class SignIn: ObservableObject {
     
     
     func signUp(email: String, password:String,userName:String){
-//        @ObservedObject var userRepo = UserRepository()//list object
-//        @ObservedObject var userVM = UserListViewModel()//list object
-
+        @ObservedObject var userRepo = UserRepository()
+      //  @ObservedObject var userVM = UserListViewModel()//list object
         
             auth.createUser(withEmail: email,
                         password: password) { [weak self]  result, error in
@@ -46,7 +46,8 @@ class SignIn: ObservableObject {
             DispatchQueue.main.async {
                 self?.signedIn=true
                 //TODO: THIS CODE IS WHEN You SIGN UP A PERSON
-   
+                userRepo.addUser(User(userName: userName, email: email))
+                
                 
             }
         }
