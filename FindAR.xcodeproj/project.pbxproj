@@ -21,6 +21,8 @@
 		3D480C0827B58F1900992BA8 /* ProductRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D480C0627B58F1900992BA8 /* ProductRepository.swift */; };
 		3D480C0A27B58F3C00992BA8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D480C0927B58F3C00992BA8 /* User.swift */; };
 		3D480C0B27B58F3C00992BA8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D480C0927B58F3C00992BA8 /* User.swift */; };
+		3D480C0D27B6A7D900992BA8 /* StyleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D480C0C27B6A7D900992BA8 /* StyleButton.swift */; };
+		3D480C0E27B6A7D900992BA8 /* StyleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D480C0C27B6A7D900992BA8 /* StyleButton.swift */; };
 		3D60E08C27AE47160077616F /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D60E08B27AE47160077616F /* SignIn.swift */; };
 		3D60E08D27AE47160077616F /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D60E08B27AE47160077616F /* SignIn.swift */; };
 		3DCE8C8B27AF8C7400168C21 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3DCE8C8A27AF8C7400168C21 /* GoogleService-Info.plist */; };
@@ -63,6 +65,7 @@
 		3D480C0327B58F0400992BA8 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		3D480C0627B58F1900992BA8 /* ProductRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductRepository.swift; sourceTree = "<group>"; };
 		3D480C0927B58F3C00992BA8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		3D480C0C27B6A7D900992BA8 /* StyleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleButton.swift; sourceTree = "<group>"; };
 		3D60E08B27AE47160077616F /* SignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignIn.swift; sourceTree = "<group>"; };
 		3DCE8C8A27AF8C7400168C21 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3DD202EF27AD6E5A003D0CBB /* FindARApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindARApp.swift; sourceTree = "<group>"; };
@@ -174,6 +177,7 @@
 				3DD202F127AD6E5A003D0CBB /* Assets.xcassets */,
 				3D480BF527B560FE00992BA8 /* Product.swift */,
 				3D480C0927B58F3C00992BA8 /* User.swift */,
+				3D480C0C27B6A7D900992BA8 /* StyleButton.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -471,6 +475,7 @@
 				3DD2031927AD6E5A003D0CBB /* ContentView.swift in Sources */,
 				3D60E08C27AE47160077616F /* SignIn.swift in Sources */,
 				3D480C0727B58F1900992BA8 /* ProductRepository.swift in Sources */,
+				3D480C0D27B6A7D900992BA8 /* StyleButton.swift in Sources */,
 				3D480C0027B58EDB00992BA8 /* UserListViewModel.swift in Sources */,
 				3D480C0427B58F0400992BA8 /* UserRepository.swift in Sources */,
 				3D480BF627B560FE00992BA8 /* Product.swift in Sources */,
@@ -488,6 +493,7 @@
 				3DD2031A27AD6E5A003D0CBB /* ContentView.swift in Sources */,
 				3D60E08D27AE47160077616F /* SignIn.swift in Sources */,
 				3D480C0827B58F1900992BA8 /* ProductRepository.swift in Sources */,
+				3D480C0E27B6A7D900992BA8 /* StyleButton.swift in Sources */,
 				3D480C0127B58EDB00992BA8 /* UserListViewModel.swift in Sources */,
 				3D480C0527B58F0400992BA8 /* UserRepository.swift in Sources */,
 				3D480BF727B560FE00992BA8 /* Product.swift in Sources */,

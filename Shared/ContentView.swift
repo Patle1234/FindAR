@@ -284,7 +284,11 @@ struct Card: Identifiable {
     
 }
 struct cardView: View{
+    @State var ifAddProduct = false
+    @State var newProductName=""
+    
     var body: some View {
+        VStack{
         ZStack{
             
             ForEach(Card.data.reversed()) { card in
@@ -293,11 +297,56 @@ struct cardView: View{
             
             
         }.frame(width: 350, height: 550, alignment: .center)
-        .padding(8)
+        .padding(15)
         .zIndex(1.0)
         .offset(y: -150)
+        
+        
+        
+        
+            HStack{
+                Spacer()
+                Button(action: {//add a task button
+                    ifAddProduct.toggle()
+                }, label: {
+                    Text("+")
+                        .font(.system(.largeTitle))
+                        .frame(width: 77, height: 70)
+                        .foregroundColor(Color.white)
+                        .padding(.bottom, 7)
+                })
+                    .background(Color.blue)
+                    .cornerRadius(38.5)
+                    .padding()
+                    .shadow(color: Color.black.opacity(0.3), radius: 3, x: 3, y: 3)
+                    
+            }
+        }
+        .sheet(isPresented: $ifAddProduct, content: {
+            TextField("Product Name",text: $newProductName)
+                .disableAutocorrection(true)
+                .autocapitalization(.none)
+                .font(Font.system(size: 25, design: .default))
+                .cornerRadius(8)
+                .background(Color.blue)
+                .padding()
+
+               Button(action: {
+                   ifAddProduct.toggle()
+                   //TODO: ADD THE PRODUCT TO FIREBASE
+
+               }, label: {
+                   Text("Create")
+                       .cornerRadius(8)
+                       .padding()
+                       .frame(width:100, height:30)
+               })
+                .buttonStyle(StyleButton(color: Color.red))
+        })
     }
 }
+               
+
 
 
 struct settingsView: View{//show settings
@@ -313,28 +362,36 @@ struct settingsView: View{//show settings
 
             }, label: {
                 Text("Sign Out")
-                    .frame(width:100, height:30)
-                    .background(Color.black)
-                    .foregroundColor(Color.blue)
                     .cornerRadius(8)
                     .padding()
-                    
-                  
+                    .frame(width:120, height:30)
+
             })
-            
+                .buttonStyle(StyleButton(color: Color.red))
+                .padding()
+
+
             Button(action: {
                 userVM.deleteUser(user: currentPerson)
                 viewModel.signOut()
             }, label: {
                 Text("Delete Account")
-                    .frame(width:100, height:30)
-                    .background(Color.black)
-                    .foregroundColor(Color.red)
                     .cornerRadius(8)
                     .padding()
-                    
-                  
+                    .frame(width:120, height:30)
             })
+                .buttonStyle(StyleButton(color: Color.red))
+                .padding()
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
             
         }
         
@@ -350,11 +407,6 @@ struct mainView: View{
     let userID=Auth.auth().currentUser?.uid
    
     var body: some View {
-<<<<<<< Updated upstream
-        
-        
-=======
-<<<<<<< HEAD
 
 //        Button(action: {
 //            viewModel.signOut()
@@ -388,50 +440,21 @@ struct mainView: View{
             }
             
         }
-            
-//        Color.green.ignoresSafeArea()
-=======
-        
->>>>>>> 184a7de36e235feb19c7ffce9eed512f15296b00
-        
->>>>>>> Stashed changes
         
         VStack{
            
-<<<<<<< HEAD
 
                 
-=======
-                ZStack{
-                  
-                    ForEach(Card.data.reversed()) { card in
-                        CardView(card: card)
-                    }
-                }.frame(width: 350, height: 350, alignment: .center)
-                .padding(8)
-                .zIndex(1.0)
-                .offset(y: -50)
-//                .background(.gray)
-<<<<<<< Updated upstream
-=======
->>>>>>> 184a7de36e235feb19c7ffce9eed512f15296b00
->>>>>>> Stashed changes
-            
-            
-            
-            
-                
-            
-
-                
-                
-                
+//                ZStack{
+//
+//                    ForEach(Card.data.reversed()) { card in
+//                        CardView(card: card)
+//                    }
+//                }.frame(width: 350, height: 350, alignment: .center)
+//                .padding(8)
+//                .zIndex(1.0)
+//                .offset(y: -50)
             
         }.background(Color(red: 0.785, green: 0.785, blue: 0.785))
-//            .frame(width: 350, height: 420, alignment: .center)
-//
-//            .cornerRadius(8)
-//
-//            .position(x: 193, y: 180)
     }
 }
