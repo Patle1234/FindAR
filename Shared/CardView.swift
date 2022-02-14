@@ -17,7 +17,7 @@ struct CardView: View {
                 .resizable()
                 .clipped()
                 
-                .scaleEffect(x: 0.8, y: 0.8, anchor: .center)
+                .scaleEffect(x: 0.8, y: 0.5, anchor: .center)
             
             // Linear Gradient
             LinearGradient(gradient: cardGradient, startPoint: .top, endPoint: .bottom)
@@ -26,13 +26,13 @@ struct CardView: View {
                 VStack(alignment: .leading){
                     HStack {
                         Text(card.name).font(.largeTitle).fontWeight(.bold).foregroundColor(.red)
-                        Text(String(card.age)).font(.title)
+//                        Text(String(card.age)).font(.title)
                     }
                     
                 }
             }
             .padding()
-            .foregroundColor(.white)
+            .foregroundColor(.gray)
             
             HStack {
                 Image("yes")
@@ -49,7 +49,7 @@ struct CardView: View {
             }
             
         }
-        .background(.white)
+        .background(.gray)
         .cornerRadius(8)
         .offset(x: card.x, y: card.y)
         .rotationEffect(.init(degrees: card.degree))

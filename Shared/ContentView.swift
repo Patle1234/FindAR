@@ -12,6 +12,7 @@ struct ContentView: View {
     @EnvironmentObject var viewModel: SignIn
     var body: some View {
         NavigationView{
+           
             if viewModel.signedIn {
                 //TODO: WHEN SIGNED IN
                 mainView()
@@ -23,6 +24,9 @@ struct ContentView: View {
         .onAppear{
             //REMOVE THE ! LATER ON
             viewModel.signedIn = viewModel.isSignedIn
+            
+            
+            
         }
     }
 }
@@ -266,7 +270,7 @@ struct Card: Identifiable {
     let id = UUID()
     let name: String
     let imageName: String
-    let age: Int
+//    let age: Int
     let company: String
     /// Card x position
     var x: CGFloat = 0.0
@@ -277,15 +281,22 @@ struct Card: Identifiable {
     
     static var data: [Card] {
         [
-            Card(name: "Treadmill", imageName: "treadmill", age: 21, company: "Athletico"),
-            Card(name: "Dumbbell", imageName: "dumbbell", age: 23, company: "Pena's Weights Inc."),
-            Card(name: "Bike", imageName: "bike", age: 26, company: "Lifetime Fitness")        ]
+            Card(name: "Treadmill", imageName: "treadmill",  company: "Athletico"),
+            Card(name: "Dumbbell", imageName: "dumbbell",  company: "Pena's Weights Inc."),
+            Card(name: "Bike", imageName: "bike", company: "Lifetime Fitness")        ]
     }
     
 }
 struct cardView: View{
     @State var ifAddProduct = false
     @State var newProductName=""
+    @State var newCompany = ""
+    @State var newDescription = ""
+    @State var newCategory = ""
+    
+    let categoriesTemp: [String] = ["Clothes", "Workout Equipment", "Electronics"]
+  
+    @ObservedObject var productRepo = ProductRepository()
     
     var body: some View {
         VStack{
@@ -299,7 +310,7 @@ struct cardView: View{
         }.frame(width: 350, height: 550, alignment: .center)
         .padding(15)
         .zIndex(1.0)
-        .offset(y: -150)
+        .offset(y: -50)
         
         
         
@@ -307,6 +318,16 @@ struct cardView: View{
             HStack{
                 Spacer()
                 Button(action: {//add a task button
+                    
+                    
+                    
+//                    productRepo.addProduct(Product(productName: "dumbbells", company: "Lifetime Fitness", description: "20 lbs", category: "Workout items"))
+                    
+                    
+                    
+                    
+                    
+                    //TODO: uncomment later
                     ifAddProduct.toggle()
                 }, label: {
                     Text("+")
@@ -319,24 +340,97 @@ struct cardView: View{
                     .cornerRadius(38.5)
                     .padding()
                     .shadow(color: Color.black.opacity(0.3), radius: 3, x: 3, y: 3)
+                    .offset(x: -10, y: -50)
                     
             }
         }
         .sheet(isPresented: $ifAddProduct, content: {
+           
+            
             TextField("Product Name",text: $newProductName)
                 .disableAutocorrection(true)
                 .autocapitalization(.none)
                 .font(Font.system(size: 25, design: .default))
                 .cornerRadius(8)
-                .background(Color.blue)
+//                .background(Color.blue)
                 .padding()
+            
+            TextField("Company",text: $newCompany)
+                .disableAutocorrection(true)
+                .autocapitalization(.none)
+                .font(Font.system(size: 25, design: .default))
+                .cornerRadius(8)
+//                .background(Color.blue)
+                .padding()
+            
+            TextField("Description",text: $newDescription)
+                .disableAutocorrection(true)
+                .autocapitalization(.none)
+                .font(Font.system(size: 25, design: .default))
+                .cornerRadius(8)
+//                .background(Color.blue)
+                .padding()
+            
+//            Picker("Select a paint color", selection: $category) {
+//                            ForEach(categoriesTemp, id: \.self) {
+//                                Text($0)
+//                            }
+//                        }
+//            .pickerStyle(.wheel)
+//            .padding()
+            
+            
+          //TODO: make this look nicer;  wheel picker?
+            Picker(
+                selection: $newCategory, label:
+                   
+                HStack {
+                    Text("Category:")
+                    Text(newCategory)
+                }
+//                    .font(.headline)
+//                    .foregroundColor(.white)
+//                    .padding()
+//                    .padding(.horizontal)
+//                    .background(Color.blue)
+//                    .cornerRadius(10)
+                    
+                   ,
+                   content: {
+                ForEach(categoriesTemp, id: \.self) { option in
+                    HStack{
+                        Text(option)
+                    }
+                    .tag(option)
+                    
+                       
+                }
+            }).pickerStyle(MenuPickerStyle())
+                .padding()
+                
+            
 
                Button(action: {
                    ifAddProduct.toggle()
                    //TODO: ADD THE PRODUCT TO FIREBASE
-
+            
+                   guard !newProductName.isEmpty, !newCompany.isEmpty, !newDescription.isEmpty, !newCategory.isEmpty else {//if the textfields are empty
+                       return
+                   }
+                   print("test")
+                   productRepo.addProduct(Product(productName: newProductName, company: newCompany, description: newDescription, category: newCategory))
+                 
+                   
+//                    productRepo.addProduct(Product(productName: "dumbbells", company: "Lifetime Fitness", description: "20 lbs", category: "Workout items"))
+                   
+                   
+                   newProductName=""
+                   newCompany = ""
+                  newDescription = ""
+                   newCategory = ""
+                   
                }, label: {
-                   Text("Create")
+                   Text("Create Item")
                        .cornerRadius(8)
                        .padding()
                        .frame(width:100, height:30)
@@ -377,6 +471,7 @@ struct settingsView: View{//show settings
             }, label: {
                 Text("Delete Account")
                     .cornerRadius(8)
+                    
                     .padding()
                     .frame(width:120, height:30)
             })

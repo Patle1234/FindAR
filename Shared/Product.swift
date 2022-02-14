@@ -12,11 +12,22 @@ import FirebaseFirestore
 struct Product: Codable {
 //    var id: ObjectIdentifier
     //somthings is codable is everything inside(pritives) are codeable
-    @DocumentID var productId: String? //creates a unqiue id for each task. DocumentID,tells firestore to add id to this field
+    @DocumentID var id: String? //creates a unqiue id for each task. DocumentID,tells firestore to add id to this field
+    var productId:String?
     var productName: String
     var company: String
-    @ServerTimestamp var createdTime: Timestamp?//whenever user timestamp is null, will create a timestamp
-    var userID:String?
+    var description: String
+    var category: String
+   
+    //TODO: FIGURE OUT IMAGE
+//    var image:
+//    @ServerTimestamp var createdTime: Timestamp?//whenever user timestamp is null, will create a timestamp
 
 }
 
+
+
+//
+
+
+ 
