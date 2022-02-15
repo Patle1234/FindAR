@@ -17,6 +17,7 @@ class UserRepository: ObservableObject{
     init(){
         loadData()
         getUser()
+        
     }
     
     
@@ -28,12 +29,15 @@ class UserRepository: ObservableObject{
                 self.users=querySnapshot.documents.compactMap{ document in
                     do{
                         let x=try document.data(as: User.self)
+                        
                         return x
+                       
                     }catch{
                         print(error)
                     }
                     return nil
                 }
+               
             }
         }
     }
@@ -48,6 +52,8 @@ class UserRepository: ObservableObject{
             fatalError("unable to encode users\(error.localizedDescription)")
         }
     }
+    
+    
     
     func getUser(){
         let userID=Auth.auth().currentUser?.uid

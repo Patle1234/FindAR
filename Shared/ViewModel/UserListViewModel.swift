@@ -33,7 +33,6 @@ class UserListViewModel: ObservableObject{//list of all of the tasks on the scre
         self.UserCellViewModels.append(userVM)
     }
     
-    
 //    func updateUser(user: User){
 //        userRepository.updateUser(user)
 //    }

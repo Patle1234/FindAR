@@ -8,6 +8,14 @@ import SwiftUI
 
 struct CardView: View {
     @State var card: Card
+    @State var ifLikeProd = false
+    
+    
+    
+    
+    
+    
+    
     // MARK: - Drawing Constant
     let cardGradient = Gradient(colors: [Color.black.opacity(0.0), Color.black.opacity(0.0)])
     
@@ -26,7 +34,13 @@ struct CardView: View {
                 VStack(alignment: .leading){
                     HStack {
                         Text(card.name).font(.largeTitle).fontWeight(.bold).foregroundColor(.red)
-//                        Text(String(card.age)).font(.title)
+                            .offset(x: -5, y: 15)
+                            
+                        
+                        Text("Rating: " + String(card.rating) + "/3").font(.title)
+                            .foregroundColor(.red)
+                            .offset(x: 20, y: 15)
+                        
                     }
                     
                 }
@@ -71,7 +85,7 @@ struct CardView: View {
                         case 0...100:
                             card.x = 0; card.degree = 0; card.y = 0
                         case let x where x > 100:
-                            card.x = 500; card.degree = 12
+                            card.x = 500; card.degree = 12; ifLikeProd.toggle()
                         case (-100)...(-1):
                             card.x = 0; card.degree = 0; card.y = 0
                         case let x where x < -100:
@@ -82,8 +96,96 @@ struct CardView: View {
                     }
                 }
         )
+        .sheet(isPresented: $ifLikeProd, content: {
+            
+            Text("Rate your product")
+            
+            HStack{
+            Button(action: {
+                print("rated1")
+                ifLikeProd.toggle()
+            }, label: {
+                Text("1")
+                    .cornerRadius(8)
+                    .padding()
+                    .frame(width:40, height:30)
+
+            }).buttonStyle(StyleButton(color: Color.red))
+                .padding()
+             
+            
+            Button(action: {
+                print("rated2")
+                ifLikeProd.toggle()
+            }, label: {
+             
+                Text("2")
+                    .cornerRadius(8)
+                    .padding()
+                    .frame(width:40, height:30)
+
+            }).buttonStyle(StyleButton(color: Color.red))
+                .padding()
+              
+                
+               
+            
+             Button(action: {
+                print("rated3")
+                ifLikeProd.toggle()
+            }, label: {
+                Text("3")
+                    .cornerRadius(8)
+                    .padding()
+                    .frame(width:40, height:30)
+
+            }).buttonStyle(StyleButton(color: Color.red))
+                .padding()
+                
+            
+                
+            }
+        })
+        
     }
+    
+    
+    
+        
+    
 }
+
+//struct prodRatePopup: View {
+//    var body: some View {
+//
+//
+//        Button(action: {
+//
+//        }) {
+//            HStack(spacing: 12) {
+//                Text("1")
+//            }
+//        }
+//
+//        Button(action: {
+//
+//        }) {
+//            HStack(spacing: 12) {
+//                Text("2")
+//            }
+//        }
+//
+//        Button(action: {
+//
+//        }) {
+//            HStack(spacing: 12) {
+//                Text("3")
+//            }
+//        }
+//    }
+//
+//
+//}
 
 
 

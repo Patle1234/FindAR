@@ -7,6 +7,10 @@
 
 import SwiftUI
 import FirebaseAuth
+import Foundation
+import Firebase
+import FirebaseFirestore
+import FirebaseFirestoreSwift
 
 struct ContentView: View {
     @EnvironmentObject var viewModel: SignIn
@@ -267,6 +271,23 @@ struct SignUpView: View {
 
 
 struct Card: Identifiable {
+    @ObservedObject var productData = ProductRepository()
+    
+    //array of products
+    lazy var prodDataArr = productData.products
+    
+    //arrays of each product's reviews
+    lazy var prod1Revs = prodDataArr[0].reviews
+    lazy var prod2Revs = prodDataArr[1].reviews
+    lazy var prod3Revs = prodDataArr[2].reviews
+    
+    //sums of each products review
+    lazy var prod1RevAvg = prod1Revs?.reduce(0, +)
+  
+    lazy var prod2RevAvg = prod1Revs?.reduce(0, +)
+    lazy var prod3RevAvg = prod1Revs?.reduce(0, +)
+    
+    
     let id = UUID()
     let name: String
     let imageName: String
@@ -279,12 +300,29 @@ struct Card: Identifiable {
     /// Card rotation angle
     var degree: Double = 0.0
     
+    var rating: Double
+    
+    
+    
+//    var newCardName
+//    var newCardCompany
+//    var newCardDescription
+//    var newCardCategory
+    
     static var data: [Card] {
         [
-            Card(name: "Treadmill", imageName: "treadmill",  company: "Athletico"),
-            Card(name: "Dumbbell", imageName: "dumbbell",  company: "Pena's Weights Inc."),
-            Card(name: "Bike", imageName: "bike", company: "Lifetime Fitness")        ]
+            
+            
+                
+                
+            
+            Card(name: "Treadmill", imageName: "treadmill",  company: "Athletico", rating: round(Double.random(in: 1..<3)*10)/10),
+            Card(name: "Dumbbell", imageName: "dumbbell",  company: "Pena's Weights Inc.", rating: round(Double.random(in: 1..<3)*10)/10),
+            Card(name: "Bike", imageName: "bike", company: "Lifetime Fitness", rating: round(Double.random(in: 1..<3)*10)/10)        ]
     }
+    
+    
+   
     
 }
 struct cardView: View{
@@ -293,6 +331,7 @@ struct cardView: View{
     @State var newCompany = ""
     @State var newDescription = ""
     @State var newCategory = ""
+    let database = Firestore.firestore()
     
     let categoriesTemp: [String] = ["Clothes", "Workout Equipment", "Electronics"]
   
@@ -418,7 +457,8 @@ struct cardView: View{
                        return
                    }
                    print("test")
-                   productRepo.addProduct(Product(productName: newProductName, company: newCompany, description: newDescription, category: newCategory))
+                       var newId = database.collection("products").document().documentID
+                   productRepo.addProduct(Product(productId: newId, productName: newProductName, company: newCompany, description: newDescription, category: newCategory))
                  
                    
 //                    productRepo.addProduct(Product(productName: "dumbbells", company: "Lifetime Fitness", description: "20 lbs", category: "Workout items"))

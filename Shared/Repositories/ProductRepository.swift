@@ -12,6 +12,8 @@ import FirebaseFirestoreSwift
 class ProductRepository: ObservableObject{
     let database = Firestore.firestore()
     @Published var products=[Product]()
+    @Published var cProduct=[Product]()
+    
     
     //TODO: prob need this, not using for now tho
 //    @Published var cProduct=[Product]()
@@ -20,7 +22,9 @@ class ProductRepository: ObservableObject{
         loadData()
         
         //TODO: UNCOMMENT AND FIX
-//        getUser()
+//        getProduct()
+       
+        
     }
     
     
@@ -32,14 +36,20 @@ class ProductRepository: ObservableObject{
                 self.products=querySnapshot.documents.compactMap{ document in
                     do{
                         let x=try document.data(as: Product.self)
+                        
+
                         return x
+                       
                     }catch{
                         print(error)
                     }
+                    
                     return nil
                 }
             }
         }
+        
+    
     }
     
     
@@ -52,24 +62,26 @@ class ProductRepository: ObservableObject{
             fatalError("unable to encode products\(error.localizedDescription)")
         }
     }
-  
+
+ 
     
     //TODO: UNCOMMENT AND FIX
 //    func getProduct(){
 //        let userID=Auth.auth().currentUser?.uid
-//        database.collection("users")
-//            .whereField("userId", isEqualTo:userID)
+//        database.collection("products")
+//            .whereField("company", isEqualTo:"Nike")
 //            .addSnapshotListener{(querySnapshot,error) in //calling the collection and getting a snapshot
 //            if let querySnapshot = querySnapshot{
-//                self.cUser=querySnapshot.documents.compactMap{ document in
+//                self.cProduct=querySnapshot.documents.compactMap{ document in
 //                    do{
-//                        let x=try document.data(as: User.self)
+//                        let x=try document.data(as: Product.self)
 //                        return x
 //                    }catch{
 //                        print(error)
 //                    }
 //                    return nil
 //                }
+//                print(self.products)
 //            }
 //        }
 //    }
