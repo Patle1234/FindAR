@@ -9,13 +9,7 @@ import SwiftUI
 struct CardView: View {
     @State var card: Card
     @State var ifLikeProd = false
-    
-    
-    
-    
-    
-    
-    
+
     // MARK: - Drawing Constant
     let cardGradient = Gradient(colors: [Color.black.opacity(0.0), Color.black.opacity(0.0)])
     

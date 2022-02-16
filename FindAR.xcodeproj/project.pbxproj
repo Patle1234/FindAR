@@ -11,13 +11,9 @@
 		3D1F346227B04FB500F81454 /* Pods_FindAR__iOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FE6F56D43509F614F7EFBCB /* Pods_FindAR__iOS_.framework */; };
 		3D480BF627B560FE00992BA8 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D480BF527B560FE00992BA8 /* Product.swift */; };
 		3D480BF727B560FE00992BA8 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D480BF527B560FE00992BA8 /* Product.swift */; };
-		3D480BFD27B58ECB00992BA8 /* UserCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D480BFC27B58ECB00992BA8 /* UserCellViewModel.swift */; };
 		3D480BFE27B58ECB00992BA8 /* UserCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D480BFC27B58ECB00992BA8 /* UserCellViewModel.swift */; };
-		3D480C0027B58EDB00992BA8 /* UserListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D480BFF27B58EDB00992BA8 /* UserListViewModel.swift */; };
 		3D480C0127B58EDB00992BA8 /* UserListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D480BFF27B58EDB00992BA8 /* UserListViewModel.swift */; };
-		3D480C0427B58F0400992BA8 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D480C0327B58F0400992BA8 /* UserRepository.swift */; };
 		3D480C0527B58F0400992BA8 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D480C0327B58F0400992BA8 /* UserRepository.swift */; };
-		3D480C0727B58F1900992BA8 /* ProductRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D480C0627B58F1900992BA8 /* ProductRepository.swift */; };
 		3D480C0827B58F1900992BA8 /* ProductRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D480C0627B58F1900992BA8 /* ProductRepository.swift */; };
 		3D480C0A27B58F3C00992BA8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D480C0927B58F3C00992BA8 /* User.swift */; };
 		3D480C0B27B58F3C00992BA8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D480C0927B58F3C00992BA8 /* User.swift */; };
@@ -25,6 +21,10 @@
 		3D480C0E27B6A7D900992BA8 /* StyleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D480C0C27B6A7D900992BA8 /* StyleButton.swift */; };
 		3D60E08C27AE47160077616F /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D60E08B27AE47160077616F /* SignIn.swift */; };
 		3D60E08D27AE47160077616F /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D60E08B27AE47160077616F /* SignIn.swift */; };
+		3DA7375427BD43B500C8C2B4 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D480C0327B58F0400992BA8 /* UserRepository.swift */; };
+		3DA7375527BD43B900C8C2B4 /* ProductRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D480C0627B58F1900992BA8 /* ProductRepository.swift */; };
+		3DA7375627BD43BC00C8C2B4 /* UserCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D480BFC27B58ECB00992BA8 /* UserCellViewModel.swift */; };
+		3DA7375727BD43BF00C8C2B4 /* UserListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D480BFF27B58EDB00992BA8 /* UserListViewModel.swift */; };
 		3DCE8C8B27AF8C7400168C21 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3DCE8C8A27AF8C7400168C21 /* GoogleService-Info.plist */; };
 		3DD2030827AD6E5A003D0CBB /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD2030727AD6E5A003D0CBB /* Tests_iOS.swift */; };
 		3DD2030A27AD6E5A003D0CBB /* Tests_iOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD2030927AD6E5A003D0CBB /* Tests_iOSLaunchTests.swift */; };
@@ -472,17 +472,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DA7375727BD43BF00C8C2B4 /* UserListViewModel.swift in Sources */,
+				3DA7375627BD43BC00C8C2B4 /* UserCellViewModel.swift in Sources */,
+				3DA7375527BD43B900C8C2B4 /* ProductRepository.swift in Sources */,
+				3DA7375427BD43B500C8C2B4 /* UserRepository.swift in Sources */,
 				3DD2031927AD6E5A003D0CBB /* ContentView.swift in Sources */,
 				3D60E08C27AE47160077616F /* SignIn.swift in Sources */,
-				3D480C0727B58F1900992BA8 /* ProductRepository.swift in Sources */,
 				3D480C0D27B6A7D900992BA8 /* StyleButton.swift in Sources */,
-				3D480C0027B58EDB00992BA8 /* UserListViewModel.swift in Sources */,
-				3D480C0427B58F0400992BA8 /* UserRepository.swift in Sources */,
 				3D480BF627B560FE00992BA8 /* Product.swift in Sources */,
 				A094717B27B1F382003F3C94 /* CardView.swift in Sources */,
 				3DD2031727AD6E5A003D0CBB /* FindARApp.swift in Sources */,
 				3D480C0A27B58F3C00992BA8 /* User.swift in Sources */,
-				3D480BFD27B58ECB00992BA8 /* UserCellViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -733,6 +733,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VYYFVMH6ZV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -760,6 +761,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VYYFVMH6ZV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
