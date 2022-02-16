@@ -8,23 +8,27 @@
 
 /* Begin PBXBuildFile section */
 		1FBC0D1315ED9F9427A6E224 /* Pods_FindAR__macOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F01ABF988A9B74A1F52E155C /* Pods_FindAR__macOS_.framework */; };
+		3D0CA26B27BD470A00FA5689 /* ProductCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0CA26A27BD470A00FA5689 /* ProductCellViewModel.swift */; };
+		3D0CA26C27BD470A00FA5689 /* ProductCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0CA26A27BD470A00FA5689 /* ProductCellViewModel.swift */; };
+		3D0CA26E27BD471200FA5689 /* ProductListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0CA26D27BD471200FA5689 /* ProductListViewModel.swift */; };
+		3D0CA26F27BD471200FA5689 /* ProductListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0CA26D27BD471200FA5689 /* ProductListViewModel.swift */; };
+		3D0CA27127BD471B00FA5689 /* userCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0CA27027BD471B00FA5689 /* userCellViewModel.swift */; };
+		3D0CA27227BD471B00FA5689 /* userCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0CA27027BD471B00FA5689 /* userCellViewModel.swift */; };
+		3D0CA27427BD473900FA5689 /* UserListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0CA27327BD473900FA5689 /* UserListViewModel.swift */; };
+		3D0CA27527BD473900FA5689 /* UserListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0CA27327BD473900FA5689 /* UserListViewModel.swift */; };
+		3D0CA27727BD476E00FA5689 /* ProductRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0CA27627BD476E00FA5689 /* ProductRepository.swift */; };
+		3D0CA27827BD476E00FA5689 /* ProductRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0CA27627BD476E00FA5689 /* ProductRepository.swift */; };
+		3D0CA27A27BD477300FA5689 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0CA27927BD477300FA5689 /* UserRepository.swift */; };
+		3D0CA27B27BD477300FA5689 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0CA27927BD477300FA5689 /* UserRepository.swift */; };
 		3D1F346227B04FB500F81454 /* Pods_FindAR__iOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FE6F56D43509F614F7EFBCB /* Pods_FindAR__iOS_.framework */; };
 		3D480BF627B560FE00992BA8 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D480BF527B560FE00992BA8 /* Product.swift */; };
 		3D480BF727B560FE00992BA8 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D480BF527B560FE00992BA8 /* Product.swift */; };
-		3D480BFE27B58ECB00992BA8 /* UserCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D480BFC27B58ECB00992BA8 /* UserCellViewModel.swift */; };
-		3D480C0127B58EDB00992BA8 /* UserListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D480BFF27B58EDB00992BA8 /* UserListViewModel.swift */; };
-		3D480C0527B58F0400992BA8 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D480C0327B58F0400992BA8 /* UserRepository.swift */; };
-		3D480C0827B58F1900992BA8 /* ProductRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D480C0627B58F1900992BA8 /* ProductRepository.swift */; };
 		3D480C0A27B58F3C00992BA8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D480C0927B58F3C00992BA8 /* User.swift */; };
 		3D480C0B27B58F3C00992BA8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D480C0927B58F3C00992BA8 /* User.swift */; };
 		3D480C0D27B6A7D900992BA8 /* StyleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D480C0C27B6A7D900992BA8 /* StyleButton.swift */; };
 		3D480C0E27B6A7D900992BA8 /* StyleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D480C0C27B6A7D900992BA8 /* StyleButton.swift */; };
 		3D60E08C27AE47160077616F /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D60E08B27AE47160077616F /* SignIn.swift */; };
 		3D60E08D27AE47160077616F /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D60E08B27AE47160077616F /* SignIn.swift */; };
-		3DA7375427BD43B500C8C2B4 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D480C0327B58F0400992BA8 /* UserRepository.swift */; };
-		3DA7375527BD43B900C8C2B4 /* ProductRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D480C0627B58F1900992BA8 /* ProductRepository.swift */; };
-		3DA7375627BD43BC00C8C2B4 /* UserCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D480BFC27B58ECB00992BA8 /* UserCellViewModel.swift */; };
-		3DA7375727BD43BF00C8C2B4 /* UserListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D480BFF27B58EDB00992BA8 /* UserListViewModel.swift */; };
 		3DCE8C8B27AF8C7400168C21 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3DCE8C8A27AF8C7400168C21 /* GoogleService-Info.plist */; };
 		3DD2030827AD6E5A003D0CBB /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD2030727AD6E5A003D0CBB /* Tests_iOS.swift */; };
 		3DD2030A27AD6E5A003D0CBB /* Tests_iOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD2030927AD6E5A003D0CBB /* Tests_iOSLaunchTests.swift */; };
@@ -59,11 +63,13 @@
 
 /* Begin PBXFileReference section */
 		3C29D3E83CB0196863143C82 /* Pods-FindAR (macOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindAR (macOS).debug.xcconfig"; path = "Target Support Files/Pods-FindAR (macOS)/Pods-FindAR (macOS).debug.xcconfig"; sourceTree = "<group>"; };
+		3D0CA26A27BD470A00FA5689 /* ProductCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProductCellViewModel.swift; path = Shared/ViewModel/ProductCellViewModel.swift; sourceTree = SOURCE_ROOT; };
+		3D0CA26D27BD471200FA5689 /* ProductListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProductListViewModel.swift; path = Shared/ViewModel/ProductListViewModel.swift; sourceTree = SOURCE_ROOT; };
+		3D0CA27027BD471B00FA5689 /* userCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = userCellViewModel.swift; path = Shared/ViewModel/userCellViewModel.swift; sourceTree = SOURCE_ROOT; };
+		3D0CA27327BD473900FA5689 /* UserListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserListViewModel.swift; path = Shared/ViewModel/UserListViewModel.swift; sourceTree = SOURCE_ROOT; };
+		3D0CA27627BD476E00FA5689 /* ProductRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProductRepository.swift; path = Shared/Repositories/ProductRepository.swift; sourceTree = SOURCE_ROOT; };
+		3D0CA27927BD477300FA5689 /* UserRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserRepository.swift; path = Shared/Repositories/UserRepository.swift; sourceTree = SOURCE_ROOT; };
 		3D480BF527B560FE00992BA8 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
-		3D480BFC27B58ECB00992BA8 /* UserCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCellViewModel.swift; sourceTree = "<group>"; };
-		3D480BFF27B58EDB00992BA8 /* UserListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewModel.swift; sourceTree = "<group>"; };
-		3D480C0327B58F0400992BA8 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
-		3D480C0627B58F1900992BA8 /* ProductRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductRepository.swift; sourceTree = "<group>"; };
 		3D480C0927B58F3C00992BA8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3D480C0C27B6A7D900992BA8 /* StyleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleButton.swift; sourceTree = "<group>"; };
 		3D60E08B27AE47160077616F /* SignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignIn.swift; sourceTree = "<group>"; };
@@ -136,8 +142,10 @@
 		3D480BFB27B58E9F00992BA8 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				3D480BFC27B58ECB00992BA8 /* UserCellViewModel.swift */,
-				3D480BFF27B58EDB00992BA8 /* UserListViewModel.swift */,
+				3D0CA26A27BD470A00FA5689 /* ProductCellViewModel.swift */,
+				3D0CA26D27BD471200FA5689 /* ProductListViewModel.swift */,
+				3D0CA27027BD471B00FA5689 /* userCellViewModel.swift */,
+				3D0CA27327BD473900FA5689 /* UserListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -145,8 +153,8 @@
 		3D480C0227B58EE900992BA8 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
-				3D480C0327B58F0400992BA8 /* UserRepository.swift */,
-				3D480C0627B58F1900992BA8 /* ProductRepository.swift */,
+				3D0CA27927BD477300FA5689 /* UserRepository.swift */,
+				3D0CA27627BD476E00FA5689 /* ProductRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -472,16 +480,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3DA7375727BD43BF00C8C2B4 /* UserListViewModel.swift in Sources */,
-				3DA7375627BD43BC00C8C2B4 /* UserCellViewModel.swift in Sources */,
-				3DA7375527BD43B900C8C2B4 /* ProductRepository.swift in Sources */,
-				3DA7375427BD43B500C8C2B4 /* UserRepository.swift in Sources */,
+				3D0CA27427BD473900FA5689 /* UserListViewModel.swift in Sources */,
 				3DD2031927AD6E5A003D0CBB /* ContentView.swift in Sources */,
+				3D0CA27127BD471B00FA5689 /* userCellViewModel.swift in Sources */,
 				3D60E08C27AE47160077616F /* SignIn.swift in Sources */,
 				3D480C0D27B6A7D900992BA8 /* StyleButton.swift in Sources */,
+				3D0CA26E27BD471200FA5689 /* ProductListViewModel.swift in Sources */,
+				3D0CA27A27BD477300FA5689 /* UserRepository.swift in Sources */,
 				3D480BF627B560FE00992BA8 /* Product.swift in Sources */,
 				A094717B27B1F382003F3C94 /* CardView.swift in Sources */,
 				3DD2031727AD6E5A003D0CBB /* FindARApp.swift in Sources */,
+				3D0CA27727BD476E00FA5689 /* ProductRepository.swift in Sources */,
+				3D0CA26B27BD470A00FA5689 /* ProductCellViewModel.swift in Sources */,
 				3D480C0A27B58F3C00992BA8 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -492,15 +502,17 @@
 			files = (
 				3DD2031A27AD6E5A003D0CBB /* ContentView.swift in Sources */,
 				3D60E08D27AE47160077616F /* SignIn.swift in Sources */,
-				3D480C0827B58F1900992BA8 /* ProductRepository.swift in Sources */,
+				3D0CA27827BD476E00FA5689 /* ProductRepository.swift in Sources */,
 				3D480C0E27B6A7D900992BA8 /* StyleButton.swift in Sources */,
-				3D480C0127B58EDB00992BA8 /* UserListViewModel.swift in Sources */,
-				3D480C0527B58F0400992BA8 /* UserRepository.swift in Sources */,
+				3D0CA27527BD473900FA5689 /* UserListViewModel.swift in Sources */,
+				3D0CA27B27BD477300FA5689 /* UserRepository.swift in Sources */,
+				3D0CA27227BD471B00FA5689 /* userCellViewModel.swift in Sources */,
 				3D480BF727B560FE00992BA8 /* Product.swift in Sources */,
+				3D0CA26F27BD471200FA5689 /* ProductListViewModel.swift in Sources */,
 				A094717C27B1F382003F3C94 /* CardView.swift in Sources */,
 				3DD2031827AD6E5A003D0CBB /* FindARApp.swift in Sources */,
 				3D480C0B27B58F3C00992BA8 /* User.swift in Sources */,
-				3D480BFE27B58ECB00992BA8 /* UserCellViewModel.swift in Sources */,
+				3D0CA26C27BD470A00FA5689 /* ProductCellViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

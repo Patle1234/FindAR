@@ -28,7 +28,7 @@ class ProductCellViewModel: ObservableObject, Identifiable{
         .store(in: &cancellable)
     }
     static func newTask() -> ProductCellViewModel {
-        ProductCellViewModel(product: Product(productId: "", productName: "", company: "", description: "", category: ""))
+        ProductCellViewModel(product: Product(productName: "", company: "", description: "", category: ""))
     }
     
 

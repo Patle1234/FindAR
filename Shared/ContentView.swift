@@ -7,10 +7,6 @@
 
 import SwiftUI
 import FirebaseAuth
-import Foundation
-import Firebase
-import FirebaseFirestore
-import FirebaseFirestoreSwift
 
 struct ContentView: View {
     @EnvironmentObject var viewModel: SignIn
@@ -59,18 +55,18 @@ struct enterView: View {
                     Text("Login")
                         .font(.system(size: 20))
                         .fontWeight(.bold)
-                        .foregroundColor(index == 0 ? .black: .gray)
+                        .foregroundColor(index == 0 ?  Color("Red"): Color("Orange"))
                     
 
                     
                     ZStack{
                         Capsule()
-                            .fill(Color.black.opacity(0.04))
+                            .fill(Color("Orange"))
                             .frame(height:4)
                         
                         if index==0{
                             Capsule()
-                                .fill(Color.black)
+                                .fill(Color("Red"))
                                 .frame(height:4)
                                 .matchedGeometryEffect(id: "Tab", in: name)
                         }
@@ -92,15 +88,15 @@ struct enterView: View {
                     Text("Sign Up")
                         .font(.system(size: 20))
                         .fontWeight(.bold)
-                        .foregroundColor(index == 1 ? .black: .gray)
+                        .foregroundColor(index == 1 ? Color("Red"): Color("Orange"))
                     ZStack{
                         Capsule()
-                            .fill(Color.black.opacity(0.04))
+                            .fill(Color("Orange"))
                             .frame(height: 4)
                         
                         if index==1{
                             Capsule()
-                                .fill(Color.black)
+                                .fill(Color("Red"))
                                 .frame(height:4)
                                 .matchedGeometryEffect(id: "Tab", in: name)
                         }
@@ -126,9 +122,9 @@ struct enterView: View {
             }
             
         }
-        
-        
-        
+        .background(Rectangle()
+                        .foregroundColor(Color("Blue"))
+                        .frame(width: 1000, height: 1000))
     }
 }
 
@@ -148,16 +144,16 @@ struct SignInView: View {
                             .autocapitalization(.none)
                             .font(Font.system(size: 25, design: .default))
                             .cornerRadius(8)
-                            .foregroundColor(Color.black)
+                            .foregroundColor(Color("DarkBlue"))
+                            .background(Color("Blue"))
                             .padding()
                         SecureField("Password", text: $password)
                             .disableAutocorrection(true)
                             .autocapitalization(.none)
                             .font(Font.system(size: 25, design: .default))
                             .cornerRadius(8)
-                            .foregroundColor(Color.black)
-                            .foregroundColor(Color("LightYellow"))
-                            .background(Color("DarkPurple"))
+                            .foregroundColor(Color("DarkBlue"))
+                            .background(Color("Blue"))
                             .padding()
         
                         Button(action: {
@@ -171,6 +167,8 @@ struct SignInView: View {
                                 .cornerRadius(8)
         
                         })
+                            .buttonStyle(StyleButton(color: Color("DarkBlue"), forgroundColor: Color("Orange")))
+
 //                        NavigationLink("Create Account", destination: SignUpView())
 //                            .padding()
 //                            .frame(width: 200, height: 50, alignment: .center)
@@ -232,6 +230,7 @@ struct SignUpView: View {
                         .cornerRadius(8)
 
                 })
+                    .buttonStyle(StyleButton(color: Color("DarkBlue"), forgroundColor: Color("Orange")))
                     .padding()
 
             }
@@ -271,23 +270,6 @@ struct SignUpView: View {
 
 
 struct Card: Identifiable {
-    @ObservedObject var productData = ProductRepository()
-    
-    //array of products
-    lazy var prodDataArr = productData.products
-    
-    //arrays of each product's reviews
-    lazy var prod1Revs = prodDataArr[0].reviews
-    lazy var prod2Revs = prodDataArr[1].reviews
-    lazy var prod3Revs = prodDataArr[2].reviews
-    
-    //sums of each products review
-    lazy var prod1RevAvg = prod1Revs?.reduce(0, +)
-  
-    lazy var prod2RevAvg = prod1Revs?.reduce(0, +)
-    lazy var prod3RevAvg = prod1Revs?.reduce(0, +)
-    
-    
     let id = UUID()
     let name: String
     let imageName: String
@@ -300,29 +282,12 @@ struct Card: Identifiable {
     /// Card rotation angle
     var degree: Double = 0.0
     
-    var rating: Double
-    
-    
-    
-//    var newCardName
-//    var newCardCompany
-//    var newCardDescription
-//    var newCardCategory
-    
     static var data: [Card] {
         [
-            
-            
-                
-                
-            
-            Card(name: "Treadmill", imageName: "treadmill",  company: "Athletico", rating: round(Double.random(in: 1..<3)*10)/10),
-            Card(name: "Dumbbell", imageName: "dumbbell",  company: "Pena's Weights Inc.", rating: round(Double.random(in: 1..<3)*10)/10),
-            Card(name: "Bike", imageName: "bike", company: "Lifetime Fitness", rating: round(Double.random(in: 1..<3)*10)/10)        ]
+            Card(name: "Treadmill", imageName: "treadmill",  company: "Athletico"),
+            Card(name: "Dumbbell", imageName: "dumbbell",  company: "Pena's Weights Inc."),
+            Card(name: "Bike", imageName: "bike", company: "Lifetime Fitness")        ]
     }
-    
-    
-   
     
 }
 struct cardView: View{
@@ -331,7 +296,6 @@ struct cardView: View{
     @State var newCompany = ""
     @State var newDescription = ""
     @State var newCategory = ""
-    let database = Firestore.firestore()
     
     let categoriesTemp: [String] = ["Clothes", "Workout Equipment", "Electronics"]
   
@@ -383,15 +347,19 @@ struct cardView: View{
                     
             }
         }
+        .background(Rectangle()
+                        .foregroundColor(Color("Blue"))
+                        .frame(width: 1000, height: 1000))
         .sheet(isPresented: $ifAddProduct, content: {
-           
+            VStack{
             
             TextField("Product Name",text: $newProductName)
                 .disableAutocorrection(true)
                 .autocapitalization(.none)
                 .font(Font.system(size: 25, design: .default))
                 .cornerRadius(8)
-//                .background(Color.blue)
+                .foregroundColor(Color("DarkBlue"))
+                .background(Color("Blue"))
                 .padding()
             
             TextField("Company",text: $newCompany)
@@ -399,7 +367,8 @@ struct cardView: View{
                 .autocapitalization(.none)
                 .font(Font.system(size: 25, design: .default))
                 .cornerRadius(8)
-//                .background(Color.blue)
+                .foregroundColor(Color("DarkBlue"))
+                .background(Color("Blue"))
                 .padding()
             
             TextField("Description",text: $newDescription)
@@ -407,7 +376,8 @@ struct cardView: View{
                 .autocapitalization(.none)
                 .font(Font.system(size: 25, design: .default))
                 .cornerRadius(8)
-//                .background(Color.blue)
+                .foregroundColor(Color("DarkBlue"))
+                .background(Color("Blue"))
                 .padding()
             
 //            Picker("Select a paint color", selection: $category) {
@@ -457,8 +427,7 @@ struct cardView: View{
                        return
                    }
                    print("test")
-                       var newId = database.collection("products").document().documentID
-                   productRepo.addProduct(Product(productId: newId, productName: newProductName, company: newCompany, description: newDescription, category: newCategory))
+                   productRepo.addProduct(Product(productName: newProductName, company: newCompany, description: newDescription, category: newCategory))
                  
                    
 //                    productRepo.addProduct(Product(productName: "dumbbells", company: "Lifetime Fitness", description: "20 lbs", category: "Workout items"))
@@ -475,8 +444,15 @@ struct cardView: View{
                        .padding()
                        .frame(width:100, height:30)
                })
-                .buttonStyle(StyleButton(color: Color.red))
+                .buttonStyle(StyleButton(color: Color("DarkBlue"), forgroundColor: Color("Orange")))
+            }
+                    .background(Rectangle()
+                                    .foregroundColor(Color("Blue"))
+                                    .frame(width: 1000, height: 1000))
         })
+//        .background(Rectangle()
+//                        .foregroundColor(Color("Blue"))
+//                        .frame(width: 1000, height: 1000))
     }
 }
                
@@ -501,7 +477,7 @@ struct settingsView: View{//show settings
                     .frame(width:120, height:30)
 
             })
-                .buttonStyle(StyleButton(color: Color.red))
+                .buttonStyle(StyleButton(color: Color("DarkBlue"), forgroundColor: Color("Orange")))
                 .padding()
 
 
@@ -515,20 +491,12 @@ struct settingsView: View{//show settings
                     .padding()
                     .frame(width:120, height:30)
             })
-                .buttonStyle(StyleButton(color: Color.red))
+                .buttonStyle(StyleButton(color: Color("DarkBlue"), forgroundColor: Color("Orange")))
                 .padding()
-
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
         }
+        .background(Rectangle()
+                        .foregroundColor(Color("Blue"))
+                        .frame(width: 1000, height: 1000))
         
     }
 }
@@ -560,8 +528,11 @@ struct mainView: View{
                     cardView()
                         .tabItem({
                             Text("Cards")
+                                .background(Color("Orange"))
                             Image(systemName:"menucard")
-                        })
+                                .background(Color("Orange"))
+                    })
+                    
 
             ForEach(userVM.UserCellViewModels){currentUser in
                 if((currentUser.user.userId)==userID){
@@ -569,12 +540,15 @@ struct mainView: View{
                     settingsView(currentPerson: currentUser.user)
                         .tabItem({
                             Image(systemName:"gear")
+                                .background(Color("Orange"))
                             Text("Settings")
+                                .background(Color("Orange"))
                         })
                 }
             }
             
         }
+
         
         VStack{
            

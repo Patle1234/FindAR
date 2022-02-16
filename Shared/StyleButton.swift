@@ -9,17 +9,19 @@ import SwiftUI
 
 struct StyleButton: ButtonStyle {
     var color: Color
-    
+    var forgroundColor: Color
+
     
     func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
             .padding(.horizontal,20)
             .padding(10)
-            .background(Color.background)
+            .background(color)
+            .foregroundColor(forgroundColor)
             .cornerRadius(5)
-            .frame(width:60, height:30)
-            .shadow(color: Color.darkShadow, radius: 3, x: 2, y: 2)
-            .shadow(color: Color.lightShadow, radius: 3, x: -2, y: -2)
+            .frame(width:70, height:30)
+//            .shadow(color: Color.darkShadow, radius: 3, x: 2, y: 2)
+//            .shadow(color: Color.lightShadow, radius: 3, x: -2, y: -2)
             .scaleEffect(configuration.isPressed ? 0.9 : 1.0)
     }
     

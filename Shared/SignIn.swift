@@ -35,7 +35,7 @@ class SignIn: ObservableObject {
     
     func signUp(email: String, password:String,userName:String){
         @ObservedObject var userRepo = UserRepository()
-      //  @ObservedObject var userViewModel()//list object
+      //  @ObservedObject var userVM = UserListViewModel()//list object
         
             auth.createUser(withEmail: email,
                         password: password) { [weak self]  result, error in
