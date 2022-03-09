@@ -34,7 +34,7 @@ class SignIn: ObservableObject {
     
     
     func signUp(email: String, password:String,userName:String){
-        @ObservedObject var userRepo = UserRepository()
+        @ObservedObject var userVM = UserListViewModel()
       //  @ObservedObject var userVM = UserListViewModel()//list object
         
             auth.createUser(withEmail: email,
@@ -45,9 +45,9 @@ class SignIn: ObservableObject {
             
             DispatchQueue.main.async {
                 self?.signedIn=true
-                //TODO: THIS CODE IS WHEN You SIGN UP A PERSON
-                userRepo.addUser(User(userName: userName, email: email))
                 
+                //adds to user view model; VM directly adds to repo, no need for it here
+                userVM.addUser(user: User(userName: userName, email: email))
                 
             }
         }
