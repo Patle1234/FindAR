@@ -23,6 +23,9 @@ class UserListViewModel: ObservableObject{//list of all of the tasks on the scre
         }
          .assign(to: \.UserCellViewModels,on:self)
         .store(in: &cancellable)
+        
+//        print("herelookie")
+//        print(UserCellViewModels.count)
     }
     
     

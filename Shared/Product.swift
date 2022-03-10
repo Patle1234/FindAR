@@ -18,7 +18,7 @@ struct Product: Codable {
     var company: String
     var description: String
     var category: String
-   
+//    var usdz: String
     //TODO: FIGURE OUT IMAGE
 //    var image:
 //    @ServerTimestamp var createdTime: Timestamp?//whenever user timestamp is null, will create a timestamp

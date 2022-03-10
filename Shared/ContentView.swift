@@ -273,21 +273,35 @@ struct Card: Identifiable {
     let id = UUID()
     let name: String
     let imageName: String
+   
 //    let age: Int
     let company: String
+    let prod: Product
     /// Card x position
     var x: CGFloat = 0.0
     /// Card y position
     var y: CGFloat = 0.0
     /// Card rotation angle
     var degree: Double = 0.0
+    @ObservedObject var prodVM = ProductListViewModel()
+    var prodsArr = ProductListViewModel().ProductCellViewModels
+//    let _ = print(ProductListViewModel().ProductCellViewModels.count)
+    let _2 = print("betaaa")
+ 
     
-    static var data: [Card] {
-        [
-            Card(name: "Treadmill", imageName: "treadmill",  company: "Athletico"),
-            Card(name: "Dumbbell", imageName: "dumbbell",  company: "Pena's Weights Inc."),
-            Card(name: "Bike", imageName: "bike", company: "Lifetime Fitness")        ]
-    }
+//    static var data: [Card] {
+//        [
+//            Card(name: "Treadmill", imageName: "treadmill",  company: "Athletico"),
+//            Card(name: "Dumbbell", imageName: "dumbbell",  company: "Pena's Weights Inc."),
+//            Card(name: "Bike", imageName: "bike", company: "Lifetime Fitness")]
+//
+//    }
+            
+
+        
+            
+    
+    
     
 }
 struct cardView: View{
@@ -295,18 +309,27 @@ struct cardView: View{
     @State var newProductName=""
     @State var newCompany = ""
     @State var newDescription = ""
-    @State var newCategory = ""
+    @State var newCategory = "Clothes"
+    @State var stuff = []
+    
     
     let categoriesTemp: [String] = ["Clothes", "Workout Equipment", "Electronics"]
   
-    @ObservedObject var productRepo = ProductRepository()
+    @ObservedObject var prodVM = ProductListViewModel()
     
     var body: some View {
         VStack{
         ZStack{
             
-            ForEach(Card.data.reversed()) { card in
-                CardView(card: card)
+            
+                
+                
+            ForEach(prodVM.ProductCellViewModels.reversed()) {product in
+                
+                let ___ = print("okok")
+//                let _ = stuff.append(product)
+//                let __ = print(stuff)
+                CardView(card: Card(name: product.product.productName, imageName: "dumbbell",  company: product.product.company, prod: product.product))
             }
             
             
@@ -427,7 +450,10 @@ struct cardView: View{
                        return
                    }
                    print("test")
-                   productRepo.addProduct(Product(productName: newProductName, company: newCompany, description: newDescription, category: newCategory))
+                   
+                   //vraj here is new product newProd variable
+                   var newProd = Product(productName: newProductName, company: newCompany, description: newDescription, category: newCategory)
+                   prodVM.addProduct(product: newProd)
                  
                    
 //                    productRepo.addProduct(Product(productName: "dumbbells", company: "Lifetime Fitness", description: "20 lbs", category: "Workout items"))
@@ -507,6 +533,7 @@ struct settingsView: View{//show settings
 struct mainView: View{
     @EnvironmentObject var viewModel: SignIn
     @ObservedObject var userVM = UserListViewModel()//list object
+    @ObservedObject var prodVM = ProductListViewModel()
     let userID=Auth.auth().currentUser?.uid
    
     var body: some View {
@@ -528,15 +555,20 @@ struct mainView: View{
                     cardView()
                         .tabItem({
                             Text("Cards")
-                                .background(Color("Orange"))
+                                .background (Color("Orange"))
                             Image(systemName:"menucard")
                                 .background(Color("Orange"))
                     })
                     
 
             ForEach(userVM.UserCellViewModels){currentUser in
+//                let _1 = print("joejeo")
+//                let _3=print(userVM.UserCellViewModels.count)
+                
+              
+                
                 if((currentUser.user.userId)==userID){
-                    let _=print("helloji")
+//                    let _2=print("helloji")
                     settingsView(currentPerson: currentUser.user)
                         .tabItem({
                             Image(systemName:"gear")
@@ -546,6 +578,8 @@ struct mainView: View{
                         })
                 }
             }
+        
+        
             
         }
 
@@ -566,4 +600,7 @@ struct mainView: View{
             
         }.background(Color(red: 0.785, green: 0.785, blue: 0.785))
     }
+    
+   
 }
+

@@ -2,13 +2,14 @@
 //  CardView.swift
 //  TinderClone
 //
-//  Created by Franck-Stephane Ndame Mpouli on 19/02/2021.
+//  Created by ritesh patel on 19/02/2021.
 //
 import SwiftUI
 
 struct CardView: View {
     @State var card: Card
     @State var ifLikeProd = false
+    @ObservedObject var prodVM = ProductListViewModel()
 
     // MARK: - Drawing Constant
     let cardGradient = Gradient(colors: [Color.black.opacity(0.0), Color.black.opacity(0.0)])
@@ -73,7 +74,11 @@ struct CardView: View {
                         case 0...100:
                             card.x = 0; card.degree = 0; card.y = 0
                         case let x where x > 100:
+                            
                             card.x = 500; card.degree = 12
+                            //vraj do stuff here
+                            print("donezozozozo")
+                            print(card.prod)
                         case (-100)...(-1):
                             card.x = 0; card.degree = 0; card.y = 0
                         case let x where x < -100:
@@ -89,9 +94,9 @@ struct CardView: View {
 
 
 
-struct CardView_Previews: PreviewProvider {
-    static var previews: some View {
-        CardView(card: Card.data[0])
-            .previewLayout(.sizeThatFits)
-    }
-}
+//struct CardView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CardView(card: Card.data[0])
+//            .previewLayout(.sizeThatFits)
+//    }
+//}
