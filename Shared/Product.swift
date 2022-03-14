@@ -9,7 +9,7 @@ import Foundation
 import FirebaseFirestoreSwift
 import FirebaseFirestore
 
-struct Product: Codable {
+public struct Product: Codable {
 //    var id: ObjectIdentifier
     //somthings is codable is everything inside(pritives) are codeable
     @DocumentID var id: String? //creates a unqiue id for each task. DocumentID,tells firestore to add id to this field
@@ -18,8 +18,6 @@ struct Product: Codable {
     var company: String
     var description: String
     var category: String
-    var imageName: String
-    var usdzName: String
 //    var usdz: String
     //TODO: FIGURE OUT IMAGE
 //    var image:

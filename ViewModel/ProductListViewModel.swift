@@ -11,7 +11,8 @@ import Combine
 class ProductListViewModel: ObservableObject{//list of all of the tasks on the screen
     @Published var ProductCellViewModels = [ProductCellViewModel]()
     @Published var productRespository = ProductRepository()
-
+//    @Published var ProductRecent:Product = Product(id: nil, productId: nil, productName: "", company: "", description: "", category: "")
+//    @Published var productsList = []
     private var cancellable = Set<AnyCancellable>()
     
     init(){
@@ -32,8 +33,19 @@ class ProductListViewModel: ObservableObject{//list of all of the tasks on the s
         let productVM = ProductCellViewModel(product: product)
         self.ProductCellViewModels.append(productVM)
     }
-    
-    
+//    func addProdToList(product: Product){
+////        print("product")
+////        print(product)
+////        productsList.append(product)
+////        print("array")
+////        print(productsList)
+//        ProductRecent = product
+//    
+//}
+//    func returnProduct() -> Product {
+//
+//        return ProductRecent
+//    }
 //    func updateUser(user: User){
 //        userRepository.updateUser(user)
 //    }
