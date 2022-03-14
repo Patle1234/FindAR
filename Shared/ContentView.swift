@@ -7,16 +7,24 @@
 
 import SwiftUI
 import FirebaseAuth
+import QuickLook
+import ARKit
+import RealityKit
+import AVFoundation
+import Photos
+import Combine
+import FirebaseStorage
 
+//WKWebView
 struct ContentView: View {
+
     @EnvironmentObject var viewModel: SignIn
     var body: some View {
         NavigationView{
-           
             if viewModel.signedIn {
-                //TODO: WHEN SIGNED IN
+                //WHEN SIGNED IN
+                //let _ = allowPerms()
                 mainView()
-
             }else{
                 enterView()
             }
@@ -24,16 +32,15 @@ struct ContentView: View {
         .onAppear{
             //REMOVE THE ! LATER ON
             viewModel.signedIn = viewModel.isSignedIn
-            
-            
-            
         }
+
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+//            .environmentObject(PlacementSettings())
     }
 }
 
@@ -103,7 +110,6 @@ struct enterView: View {
                         
 
                     }
-                    //.fill(Color.black)
                     
                 }
             })
@@ -111,9 +117,7 @@ struct enterView: View {
             
             
         }
-       // .padding(.top,30)
-         
-        //Spacer()
+
             
             if index==0{
                 SignInView()
@@ -241,34 +245,6 @@ struct SignUpView: View {
     }
 }
 
-
-
-
-
-
-
-//struct SignInView: View {
-//    var body: some View {
-//
-//        Button("Joe", action: {
-//                           print("?")
-//
-//
-//                       }
-//    )}
-//}
-
-
-
-
-
-
-
-
-
-
-
-
 struct Card: Identifiable {
     let id = UUID()
     let name: String
@@ -285,22 +261,6 @@ struct Card: Identifiable {
     var degree: Double = 0.0
     @ObservedObject var prodVM = ProductListViewModel()
     var prodsArr = ProductListViewModel().ProductCellViewModels
-//    let _ = print(ProductListViewModel().ProductCellViewModels.count)
-    let _2 = print("betaaa")
- 
-    
-//    static var data: [Card] {
-//        [
-//            Card(name: "Treadmill", imageName: "treadmill",  company: "Athletico"),
-//            Card(name: "Dumbbell", imageName: "dumbbell",  company: "Pena's Weights Inc."),
-//            Card(name: "Bike", imageName: "bike", company: "Lifetime Fitness")]
-//
-//    }
-            
-
-        
-            
-    
     
     
 }
@@ -321,38 +281,18 @@ struct cardView: View{
         VStack{
         ZStack{
             
-            
-                
-                
             ForEach(prodVM.ProductCellViewModels.reversed()) {product in
-                
-                let ___ = print("okok")
-//                let _ = stuff.append(product)
-//                let __ = print(stuff)
-                CardView(card: Card(name: product.product.productName, imageName: "dumbbell",  company: product.product.company, prod: product.product))
+                CardView(card: Card(name: product.product.productName, imageName: product.product.imageName,  company: product.product.company, prod: product.product))
             }
-            
             
         }.frame(width: 350, height: 550, alignment: .center)
         .padding(15)
         .zIndex(1.0)
         .offset(y: -50)
-        
-        
-        
-        
+
             HStack{
                 Spacer()
-                Button(action: {//add a task button
-                    
-                    
-                    
-//                    productRepo.addProduct(Product(productName: "dumbbells", company: "Lifetime Fitness", description: "20 lbs", category: "Workout items"))
-                    
-                    
-                    
-                    
-                    
+                Button(action: {
                     //TODO: uncomment later
                     ifAddProduct.toggle()
                 }, label: {
@@ -403,14 +343,6 @@ struct cardView: View{
                 .background(Color("Blue"))
                 .padding()
             
-//            Picker("Select a paint color", selection: $category) {
-//                            ForEach(categoriesTemp, id: \.self) {
-//                                Text($0)
-//                            }
-//                        }
-//            .pickerStyle(.wheel)
-//            .padding()
-            
             
           //TODO: make this look nicer;  wheel picker?
             Picker(
@@ -419,23 +351,13 @@ struct cardView: View{
                 HStack {
                     Text("Category:")
                     Text(newCategory)
-                }
-//                    .font(.headline)
-//                    .foregroundColor(.white)
-//                    .padding()
-//                    .padding(.horizontal)
-//                    .background(Color.blue)
-//                    .cornerRadius(10)
-                    
-                   ,
+                },
                    content: {
                 ForEach(categoriesTemp, id: \.self) { option in
                     HStack{
                         Text(option)
                     }
                     .tag(option)
-                    
-                       
                 }
             }).pickerStyle(MenuPickerStyle())
                 .padding()
@@ -449,15 +371,10 @@ struct cardView: View{
                    guard !newProductName.isEmpty, !newCompany.isEmpty, !newDescription.isEmpty, !newCategory.isEmpty else {//if the textfields are empty
                        return
                    }
-                   print("test")
                    
-                   //vraj here is new product newProd variable
-                   var newProd = Product(productName: newProductName, company: newCompany, description: newDescription, category: newCategory)
+                   //TODO: WE NEED TO CHANGE IMAGE NAME AND USDZ NAME TO
+                   var newProd = Product(productName: newProductName, company: newCompany, description: newDescription, category: newCategory,imageName:"pe",usdzName:"ura")
                    prodVM.addProduct(product: newProd)
-                 
-                   
-//                    productRepo.addProduct(Product(productName: "dumbbells", company: "Lifetime Fitness", description: "20 lbs", category: "Workout items"))
-                   
                    
                    newProductName=""
                    newCompany = ""
@@ -490,9 +407,12 @@ struct settingsView: View{//show settings
     @ObservedObject var userRepo = UserRepository()
     @ObservedObject var userVM = UserListViewModel()
     @State var currentPerson:User
-    
+
     var body: some View {
         VStack{
+
+
+
             Button(action: {
                 viewModel.signOut()
 
@@ -509,6 +429,9 @@ struct settingsView: View{//show settings
 
             Button(action: {
                 userVM.deleteUser(user: currentPerson)
+                
+                let user = Auth.auth().currentUser
+                
                 viewModel.signOut()
             }, label: {
                 Text("Delete Account")
@@ -520,47 +443,58 @@ struct settingsView: View{//show settings
                 .buttonStyle(StyleButton(color: Color("DarkBlue"), forgroundColor: Color("Orange")))
                 .padding()
         }
-        .background(Rectangle()
-                        .foregroundColor(Color("Blue"))
-                        .frame(width: 1000, height: 1000))
-        
     }
+
 }
 
 
+struct ARQLView: UIViewControllerRepresentable {
+    typealias UIViewControllerType = ARQLViewController
+    let fileName:URL
+
+    func makeCoordinator() -> Coordinator {
+        return Coordinator(self)
+    }
+
+    func makeUIViewController(context: Context) -> ARQLViewController {
+        let viewController = ARQLViewController(assetName:fileName )
+        print("fileName:\(fileName)")
+        return viewController
+    }
+
+    func updateUIViewController(_ uiViewController: ARQLViewController, context: Context) {
+    }
+
+    class Coordinator: NSObject {
+        var parent: ARQLView
+        init(_ parent: ARQLView) {
+            self.parent = parent
+        }
+    }
+}
 
 
 struct mainView: View{
     @EnvironmentObject var viewModel: SignIn
     @ObservedObject var userVM = UserListViewModel()//list object
     @ObservedObject var prodVM = ProductListViewModel()
+    @State var showingPreview=false
+    @State var allowsScaling = false
     let userID=Auth.auth().currentUser?.uid
    
     var body: some View {
-
-//        Button(action: {
-//            viewModel.signOut()
-//
-//        }, label: {
-//            Text("Sign Out")
-//                .frame(width:100, height:30)
-//                .background(Color.black)
-//                .foregroundColor(Color.blue)
-//                .cornerRadius(8)
-//                .padding()
-//                
-//              
-//        })
+        
         TabView{
                     cardView()
-                        .tabItem({
+
+                .tabItem({
                             Text("Cards")
                                 .background (Color("Orange"))
                             Image(systemName:"menucard")
                                 .background(Color("Orange"))
                     })
                     
-
+            let _ = print("go in seettings")
             ForEach(userVM.UserCellViewModels){currentUser in
 //                let _1 = print("joejeo")
 //                let _3=print(userVM.UserCellViewModels.count)
@@ -578,29 +512,12 @@ struct mainView: View{
                         })
                 }
             }
-        
-        
-            
         }
-
         
         VStack{
-           
-
-                
-//                ZStack{
-//
-//                    ForEach(Card.data.reversed()) { card in
-//                        CardView(card: card)
-//                    }
-//                }.frame(width: 350, height: 350, alignment: .center)
-//                .padding(8)
-//                .zIndex(1.0)
-//                .offset(y: -50)
             
         }.background(Color(red: 0.785, green: 0.785, blue: 0.785))
-    }
     
-   
+}
 }
 

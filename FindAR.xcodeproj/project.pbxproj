@@ -20,7 +20,25 @@
 		3D0CA27827BD476E00FA5689 /* ProductRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0CA27627BD476E00FA5689 /* ProductRepository.swift */; };
 		3D0CA27A27BD477300FA5689 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0CA27927BD477300FA5689 /* UserRepository.swift */; };
 		3D0CA27B27BD477300FA5689 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0CA27927BD477300FA5689 /* UserRepository.swift */; };
+		3D0CA28527BFE63200FA5689 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0CA28427BFE63200FA5689 /* AppDelegate.swift */; };
+		3D0CA28727BFE63200FA5689 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0CA28627BFE63200FA5689 /* ContentView.swift */; };
+		3D0CA28B27BFE63200FA5689 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D0CA28A27BFE63200FA5689 /* Assets.xcassets */; };
+		3D0CA28E27BFE63200FA5689 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D0CA28D27BFE63200FA5689 /* Preview Assets.xcassets */; };
+		3D0CA29827BFE63200FA5689 /* ARTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0CA29727BFE63200FA5689 /* ARTests.swift */; };
+		3D0CA2A227BFE63200FA5689 /* ARUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0CA2A127BFE63200FA5689 /* ARUITests.swift */; };
+		3D0CA2A427BFE63200FA5689 /* ARUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0CA2A327BFE63200FA5689 /* ARUITestsLaunchTests.swift */; };
+		3D0CA2B127C5287B00FA5689 /* ARQuickLook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0CA2B027C5287B00FA5689 /* ARQuickLook.swift */; };
+		3D0CA2B227C5287B00FA5689 /* ARQuickLook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0CA2B027C5287B00FA5689 /* ARQuickLook.swift */; };
 		3D1F346227B04FB500F81454 /* Pods_FindAR__iOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FE6F56D43509F614F7EFBCB /* Pods_FindAR__iOS_.framework */; };
+		3D2973F927C68028005E575E /* FocusEntity in Frameworks */ = {isa = PBXBuildFile; productRef = 3D2973F827C68028005E575E /* FocusEntity */; };
+		3D2973FC27C68067005E575E /* CustomARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2973FB27C68067005E575E /* CustomARView.swift */; };
+		3D2973FD27C68067005E575E /* CustomARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2973FB27C68067005E575E /* CustomARView.swift */; };
+		3D2973FF27C681EE005E575E /* PlacementSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2973FE27C681EE005E575E /* PlacementSettings.swift */; };
+		3D29740027C681EE005E575E /* PlacementSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2973FE27C681EE005E575E /* PlacementSettings.swift */; };
+		3D29740527C7CECE005E575E /* PlacementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D29740427C7CECE005E575E /* PlacementView.swift */; };
+		3D29740627C7CECE005E575E /* PlacementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D29740427C7CECE005E575E /* PlacementView.swift */; };
+		3D29740827CE778D005E575E /* ARQLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D29740727CE778D005E575E /* ARQLViewController.swift */; };
+		3D29740927CE778D005E575E /* ARQLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D29740727CE778D005E575E /* ARQLViewController.swift */; };
 		3D480BF627B560FE00992BA8 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D480BF527B560FE00992BA8 /* Product.swift */; };
 		3D480BF727B560FE00992BA8 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D480BF527B560FE00992BA8 /* Product.swift */; };
 		3D480C0A27B58F3C00992BA8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D480C0927B58F3C00992BA8 /* User.swift */; };
@@ -29,6 +47,8 @@
 		3D480C0E27B6A7D900992BA8 /* StyleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D480C0C27B6A7D900992BA8 /* StyleButton.swift */; };
 		3D60E08C27AE47160077616F /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D60E08B27AE47160077616F /* SignIn.swift */; };
 		3D60E08D27AE47160077616F /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D60E08B27AE47160077616F /* SignIn.swift */; };
+		3D894B6427DE83FE004F8D31 /* SFSafariViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D894B6327DE83FE004F8D31 /* SFSafariViewWrapper.swift */; };
+		3D894B6527DE83FE004F8D31 /* SFSafariViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D894B6327DE83FE004F8D31 /* SFSafariViewWrapper.swift */; };
 		3DCE8C8B27AF8C7400168C21 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3DCE8C8A27AF8C7400168C21 /* GoogleService-Info.plist */; };
 		3DD2030827AD6E5A003D0CBB /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD2030727AD6E5A003D0CBB /* Tests_iOS.swift */; };
 		3DD2030A27AD6E5A003D0CBB /* Tests_iOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD2030927AD6E5A003D0CBB /* Tests_iOSLaunchTests.swift */; };
@@ -40,11 +60,27 @@
 		3DD2031A27AD6E5A003D0CBB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD202F027AD6E5A003D0CBB /* ContentView.swift */; };
 		3DD2031B27AD6E5A003D0CBB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DD202F127AD6E5A003D0CBB /* Assets.xcassets */; };
 		3DD2031C27AD6E5A003D0CBB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DD202F127AD6E5A003D0CBB /* Assets.xcassets */; };
+		3DE424F627D10E5A009C3841 /* FirebaseStorageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE424F527D10E59009C3841 /* FirebaseStorageHelper.swift */; };
+		3DE424F727D10E5A009C3841 /* FirebaseStorageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE424F527D10E59009C3841 /* FirebaseStorageHelper.swift */; };
 		A094717B27B1F382003F3C94 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A094717A27B1F382003F3C94 /* CardView.swift */; };
 		A094717C27B1F382003F3C94 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A094717A27B1F382003F3C94 /* CardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		3D0CA29427BFE63200FA5689 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3DD202EA27AD6E59003D0CBB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3D0CA28127BFE63100FA5689;
+			remoteInfo = AR;
+		};
+		3D0CA29E27BFE63200FA5689 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3DD202EA27AD6E59003D0CBB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3D0CA28127BFE63100FA5689;
+			remoteInfo = AR;
+		};
 		3DD2030427AD6E5A003D0CBB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3DD202EA27AD6E59003D0CBB /* Project object */;
@@ -65,14 +101,30 @@
 		3C29D3E83CB0196863143C82 /* Pods-FindAR (macOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindAR (macOS).debug.xcconfig"; path = "Target Support Files/Pods-FindAR (macOS)/Pods-FindAR (macOS).debug.xcconfig"; sourceTree = "<group>"; };
 		3D0CA26A27BD470A00FA5689 /* ProductCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProductCellViewModel.swift; path = ViewModel/ProductCellViewModel.swift; sourceTree = SOURCE_ROOT; };
 		3D0CA26D27BD471200FA5689 /* ProductListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProductListViewModel.swift; path = ViewModel/ProductListViewModel.swift; sourceTree = SOURCE_ROOT; };
-		3D0CA27027BD471B00FA5689 /* UserCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserCellViewModel.swift; path = ViewModel/UserCellViewModel.swift; sourceTree = SOURCE_ROOT; };
+		3D0CA27027BD471B00FA5689 /* UserCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserCellViewModel.swift; path = Shared/ViewModel/UserCellViewModel.swift; sourceTree = SOURCE_ROOT; };
 		3D0CA27327BD473900FA5689 /* UserListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserListViewModel.swift; path = ViewModel/UserListViewModel.swift; sourceTree = SOURCE_ROOT; };
 		3D0CA27627BD476E00FA5689 /* ProductRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProductRepository.swift; path = Repositories/ProductRepository.swift; sourceTree = SOURCE_ROOT; };
 		3D0CA27927BD477300FA5689 /* UserRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserRepository.swift; path = Repositories/UserRepository.swift; sourceTree = SOURCE_ROOT; };
+		3D0CA28227BFE63100FA5689 /* AR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AR.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D0CA28427BFE63200FA5689 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3D0CA28627BFE63200FA5689 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		3D0CA28A27BFE63200FA5689 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3D0CA28D27BFE63200FA5689 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		3D0CA29327BFE63200FA5689 /* ARTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ARTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D0CA29727BFE63200FA5689 /* ARTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARTests.swift; sourceTree = "<group>"; };
+		3D0CA29D27BFE63200FA5689 /* ARUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ARUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D0CA2A127BFE63200FA5689 /* ARUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARUITests.swift; sourceTree = "<group>"; };
+		3D0CA2A327BFE63200FA5689 /* ARUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		3D0CA2B027C5287B00FA5689 /* ARQuickLook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARQuickLook.swift; sourceTree = "<group>"; };
+		3D2973FB27C68067005E575E /* CustomARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomARView.swift; sourceTree = "<group>"; };
+		3D2973FE27C681EE005E575E /* PlacementSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacementSettings.swift; sourceTree = "<group>"; };
+		3D29740427C7CECE005E575E /* PlacementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacementView.swift; sourceTree = "<group>"; };
+		3D29740727CE778D005E575E /* ARQLViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARQLViewController.swift; sourceTree = "<group>"; };
 		3D480BF527B560FE00992BA8 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		3D480C0927B58F3C00992BA8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3D480C0C27B6A7D900992BA8 /* StyleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleButton.swift; sourceTree = "<group>"; };
 		3D60E08B27AE47160077616F /* SignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignIn.swift; sourceTree = "<group>"; };
+		3D894B6327DE83FE004F8D31 /* SFSafariViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFSafariViewWrapper.swift; sourceTree = "<group>"; };
 		3DCE8C8A27AF8C7400168C21 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3DD202EF27AD6E5A003D0CBB /* FindARApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindARApp.swift; sourceTree = "<group>"; };
 		3DD202F027AD6E5A003D0CBB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; wrapsLines = 0; };
@@ -86,6 +138,7 @@
 		3DD2030F27AD6E5A003D0CBB /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DD2031327AD6E5A003D0CBB /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
 		3DD2031527AD6E5A003D0CBB /* Tests_macOSLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOSLaunchTests.swift; sourceTree = "<group>"; };
+		3DE424F527D10E59009C3841 /* FirebaseStorageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FirebaseStorageHelper.swift; path = Shared/FirebaseStorageHelper.swift; sourceTree = SOURCE_ROOT; };
 		3F0BD1E24201B591F73BF1A3 /* Pods-FindAR (iOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindAR (iOS).release.xcconfig"; path = "Target Support Files/Pods-FindAR (iOS)/Pods-FindAR (iOS).release.xcconfig"; sourceTree = "<group>"; };
 		614F015973087294037996AE /* Pods-FindAR (iOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindAR (iOS).debug.xcconfig"; path = "Target Support Files/Pods-FindAR (iOS)/Pods-FindAR (iOS).debug.xcconfig"; sourceTree = "<group>"; };
 		6ADA16A0758B6A258A1B518E /* Pods-FindAR (macOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindAR (macOS).release.xcconfig"; path = "Target Support Files/Pods-FindAR (macOS)/Pods-FindAR (macOS).release.xcconfig"; sourceTree = "<group>"; };
@@ -95,10 +148,32 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		3D0CA27F27BFE63100FA5689 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3D0CA29027BFE63200FA5689 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3D0CA29A27BFE63200FA5689 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3DD202F327AD6E5A003D0CBB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D2973F927C68028005E575E /* FocusEntity in Frameworks */,
 				3D1F346227B04FB500F81454 /* Pods_FindAR__iOS_.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -139,6 +214,42 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		3D0CA28327BFE63100FA5689 /* AR */ = {
+			isa = PBXGroup;
+			children = (
+				3D0CA28427BFE63200FA5689 /* AppDelegate.swift */,
+				3D0CA28627BFE63200FA5689 /* ContentView.swift */,
+				3D0CA28A27BFE63200FA5689 /* Assets.xcassets */,
+				3D0CA28C27BFE63200FA5689 /* Preview Content */,
+			);
+			path = AR;
+			sourceTree = "<group>";
+		};
+		3D0CA28C27BFE63200FA5689 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				3D0CA28D27BFE63200FA5689 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		3D0CA29627BFE63200FA5689 /* ARTests */ = {
+			isa = PBXGroup;
+			children = (
+				3D0CA29727BFE63200FA5689 /* ARTests.swift */,
+			);
+			path = ARTests;
+			sourceTree = "<group>";
+		};
+		3D0CA2A027BFE63200FA5689 /* ARUITests */ = {
+			isa = PBXGroup;
+			children = (
+				3D0CA2A127BFE63200FA5689 /* ARUITests.swift */,
+				3D0CA2A327BFE63200FA5689 /* ARUITestsLaunchTests.swift */,
+			);
+			path = ARUITests;
+			sourceTree = "<group>";
+		};
 		3D480BFB27B58E9F00992BA8 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +257,7 @@
 				3D0CA26D27BD471200FA5689 /* ProductListViewModel.swift */,
 				3D0CA27027BD471B00FA5689 /* UserCellViewModel.swift */,
 				3D0CA27327BD473900FA5689 /* UserListViewModel.swift */,
+				3D29740727CE778D005E575E /* ARQLViewController.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -155,6 +267,7 @@
 			children = (
 				3D0CA27927BD477300FA5689 /* UserRepository.swift */,
 				3D0CA27627BD476E00FA5689 /* ProductRepository.swift */,
+				3DE424F527D10E59009C3841 /* FirebaseStorageHelper.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -169,6 +282,9 @@
 				3DD202FD27AD6E5A003D0CBB /* macOS */,
 				3DD2030627AD6E5A003D0CBB /* Tests iOS */,
 				3DD2031227AD6E5A003D0CBB /* Tests macOS */,
+				3D0CA28327BFE63100FA5689 /* AR */,
+				3D0CA29627BFE63200FA5689 /* ARTests */,
+				3D0CA2A027BFE63200FA5689 /* ARUITests */,
 				3DD202F727AD6E5A003D0CBB /* Products */,
 				3C3C183B61744A7983921A8A /* Pods */,
 				E9B0672B954C7ADEB13CDA23 /* Frameworks */,
@@ -186,6 +302,11 @@
 				3D480BF527B560FE00992BA8 /* Product.swift */,
 				3D480C0927B58F3C00992BA8 /* User.swift */,
 				3D480C0C27B6A7D900992BA8 /* StyleButton.swift */,
+				3D0CA2B027C5287B00FA5689 /* ARQuickLook.swift */,
+				3D2973FB27C68067005E575E /* CustomARView.swift */,
+				3D2973FE27C681EE005E575E /* PlacementSettings.swift */,
+				3D29740427C7CECE005E575E /* PlacementView.swift */,
+				3D894B6327DE83FE004F8D31 /* SFSafariViewWrapper.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -197,6 +318,9 @@
 				3DD202FC27AD6E5A003D0CBB /* FindAR.app */,
 				3DD2030327AD6E5A003D0CBB /* Tests iOS.xctest */,
 				3DD2030F27AD6E5A003D0CBB /* Tests macOS.xctest */,
+				3D0CA28227BFE63100FA5689 /* AR.app */,
+				3D0CA29327BFE63200FA5689 /* ARTests.xctest */,
+				3D0CA29D27BFE63200FA5689 /* ARUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -239,6 +363,59 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		3D0CA28127BFE63100FA5689 /* AR */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3D0CA2A527BFE63200FA5689 /* Build configuration list for PBXNativeTarget "AR" */;
+			buildPhases = (
+				3D0CA27E27BFE63100FA5689 /* Sources */,
+				3D0CA27F27BFE63100FA5689 /* Frameworks */,
+				3D0CA28027BFE63100FA5689 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AR;
+			productName = AR;
+			productReference = 3D0CA28227BFE63100FA5689 /* AR.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3D0CA29227BFE63200FA5689 /* ARTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3D0CA2A827BFE63200FA5689 /* Build configuration list for PBXNativeTarget "ARTests" */;
+			buildPhases = (
+				3D0CA28F27BFE63200FA5689 /* Sources */,
+				3D0CA29027BFE63200FA5689 /* Frameworks */,
+				3D0CA29127BFE63200FA5689 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3D0CA29527BFE63200FA5689 /* PBXTargetDependency */,
+			);
+			name = ARTests;
+			productName = ARTests;
+			productReference = 3D0CA29327BFE63200FA5689 /* ARTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		3D0CA29C27BFE63200FA5689 /* ARUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3D0CA2AB27BFE63200FA5689 /* Build configuration list for PBXNativeTarget "ARUITests" */;
+			buildPhases = (
+				3D0CA29927BFE63200FA5689 /* Sources */,
+				3D0CA29A27BFE63200FA5689 /* Frameworks */,
+				3D0CA29B27BFE63200FA5689 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3D0CA29F27BFE63200FA5689 /* PBXTargetDependency */,
+			);
+			name = ARUITests;
+			productName = ARUITests;
+			productReference = 3D0CA29D27BFE63200FA5689 /* ARUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		3DD202F527AD6E5A003D0CBB /* FindAR (iOS) */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3DD2031F27AD6E5A003D0CBB /* Build configuration list for PBXNativeTarget "FindAR (iOS)" */;
@@ -254,6 +431,9 @@
 			dependencies = (
 			);
 			name = "FindAR (iOS)";
+			packageProductDependencies = (
+				3D2973F827C68028005E575E /* FocusEntity */,
+			);
 			productName = "FindAR (iOS)";
 			productReference = 3DD202F627AD6E5A003D0CBB /* FindAR.app */;
 			productType = "com.apple.product-type.application";
@@ -323,6 +503,17 @@
 				LastSwiftUpdateCheck = 1320;
 				LastUpgradeCheck = 1320;
 				TargetAttributes = {
+					3D0CA28127BFE63100FA5689 = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+					3D0CA29227BFE63200FA5689 = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = 3D0CA28127BFE63100FA5689;
+					};
+					3D0CA29C27BFE63200FA5689 = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = 3D0CA28127BFE63100FA5689;
+					};
 					3DD202F527AD6E5A003D0CBB = {
 						CreatedOnToolsVersion = 13.2.1;
 					};
@@ -348,6 +539,9 @@
 				Base,
 			);
 			mainGroup = 3DD202E927AD6E59003D0CBB;
+			packageReferences = (
+				3D2973F727C68028005E575E /* XCRemoteSwiftPackageReference "FocusEntity" */,
+			);
 			productRefGroup = 3DD202F727AD6E5A003D0CBB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -356,11 +550,37 @@
 				3DD202FB27AD6E5A003D0CBB /* FindAR (macOS) */,
 				3DD2030227AD6E5A003D0CBB /* Tests iOS */,
 				3DD2030E27AD6E5A003D0CBB /* Tests macOS */,
+				3D0CA28127BFE63100FA5689 /* AR */,
+				3D0CA29227BFE63200FA5689 /* ARTests */,
+				3D0CA29C27BFE63200FA5689 /* ARUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		3D0CA28027BFE63100FA5689 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D0CA28E27BFE63200FA5689 /* Preview Assets.xcassets in Resources */,
+				3D0CA28B27BFE63200FA5689 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3D0CA29127BFE63200FA5689 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3D0CA29B27BFE63200FA5689 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3DD202F427AD6E5A003D0CBB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -476,22 +696,55 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		3D0CA27E27BFE63100FA5689 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D0CA28727BFE63200FA5689 /* ContentView.swift in Sources */,
+				3D0CA28527BFE63200FA5689 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3D0CA28F27BFE63200FA5689 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D0CA29827BFE63200FA5689 /* ARTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3D0CA29927BFE63200FA5689 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D0CA2A227BFE63200FA5689 /* ARUITests.swift in Sources */,
+				3D0CA2A427BFE63200FA5689 /* ARUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3DD202F227AD6E5A003D0CBB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				3D0CA27427BD473900FA5689 /* UserListViewModel.swift in Sources */,
 				3DD2031927AD6E5A003D0CBB /* ContentView.swift in Sources */,
+				3D29740527C7CECE005E575E /* PlacementView.swift in Sources */,
 				3D0CA27127BD471B00FA5689 /* UserCellViewModel.swift in Sources */,
 				3D60E08C27AE47160077616F /* SignIn.swift in Sources */,
 				3D480C0D27B6A7D900992BA8 /* StyleButton.swift in Sources */,
 				3D0CA26E27BD471200FA5689 /* ProductListViewModel.swift in Sources */,
 				3D0CA27A27BD477300FA5689 /* UserRepository.swift in Sources */,
+				3D894B6427DE83FE004F8D31 /* SFSafariViewWrapper.swift in Sources */,
 				3D480BF627B560FE00992BA8 /* Product.swift in Sources */,
 				A094717B27B1F382003F3C94 /* CardView.swift in Sources */,
 				3DD2031727AD6E5A003D0CBB /* FindARApp.swift in Sources */,
+				3D29740827CE778D005E575E /* ARQLViewController.swift in Sources */,
+				3D2973FC27C68067005E575E /* CustomARView.swift in Sources */,
 				3D0CA27727BD476E00FA5689 /* ProductRepository.swift in Sources */,
+				3D2973FF27C681EE005E575E /* PlacementSettings.swift in Sources */,
+				3DE424F627D10E5A009C3841 /* FirebaseStorageHelper.swift in Sources */,
 				3D0CA26B27BD470A00FA5689 /* ProductCellViewModel.swift in Sources */,
+				3D0CA2B127C5287B00FA5689 /* ARQuickLook.swift in Sources */,
 				3D480C0A27B58F3C00992BA8 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -502,17 +755,24 @@
 			files = (
 				3DD2031A27AD6E5A003D0CBB /* ContentView.swift in Sources */,
 				3D60E08D27AE47160077616F /* SignIn.swift in Sources */,
+				3D29740627C7CECE005E575E /* PlacementView.swift in Sources */,
 				3D0CA27827BD476E00FA5689 /* ProductRepository.swift in Sources */,
 				3D480C0E27B6A7D900992BA8 /* StyleButton.swift in Sources */,
 				3D0CA27527BD473900FA5689 /* UserListViewModel.swift in Sources */,
 				3D0CA27B27BD477300FA5689 /* UserRepository.swift in Sources */,
 				3D0CA27227BD471B00FA5689 /* UserCellViewModel.swift in Sources */,
+				3D894B6527DE83FE004F8D31 /* SFSafariViewWrapper.swift in Sources */,
 				3D480BF727B560FE00992BA8 /* Product.swift in Sources */,
 				3D0CA26F27BD471200FA5689 /* ProductListViewModel.swift in Sources */,
 				A094717C27B1F382003F3C94 /* CardView.swift in Sources */,
+				3D29740927CE778D005E575E /* ARQLViewController.swift in Sources */,
+				3D2973FD27C68067005E575E /* CustomARView.swift in Sources */,
 				3DD2031827AD6E5A003D0CBB /* FindARApp.swift in Sources */,
+				3D29740027C681EE005E575E /* PlacementSettings.swift in Sources */,
+				3DE424F727D10E5A009C3841 /* FirebaseStorageHelper.swift in Sources */,
 				3D480C0B27B58F3C00992BA8 /* User.swift in Sources */,
 				3D0CA26C27BD470A00FA5689 /* ProductCellViewModel.swift in Sources */,
+				3D0CA2B227C5287B00FA5689 /* ARQuickLook.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -537,6 +797,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		3D0CA29527BFE63200FA5689 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3D0CA28127BFE63100FA5689 /* AR */;
+			targetProxy = 3D0CA29427BFE63200FA5689 /* PBXContainerItemProxy */;
+		};
+		3D0CA29F27BFE63200FA5689 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3D0CA28127BFE63100FA5689 /* AR */;
+			targetProxy = 3D0CA29E27BFE63200FA5689 /* PBXContainerItemProxy */;
+		};
 		3DD2030527AD6E5A003D0CBB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 3DD202F527AD6E5A003D0CBB /* FindAR (iOS) */;
@@ -550,6 +820,153 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		3D0CA2A627BFE63200FA5689 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"AR/Preview Content\"";
+				DEVELOPMENT_TEAM = VYYFVMH6ZV;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiredDeviceCapabilities = arkit;
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Dev.AR;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3D0CA2A727BFE63200FA5689 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"AR/Preview Content\"";
+				DEVELOPMENT_TEAM = VYYFVMH6ZV;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiredDeviceCapabilities = arkit;
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Dev.AR;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3D0CA2A927BFE63200FA5689 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VYYFVMH6ZV;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Dev.ARTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AR.app/AR";
+			};
+			name = Debug;
+		};
+		3D0CA2AA27BFE63200FA5689 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VYYFVMH6ZV;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Dev.ARTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AR.app/AR";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3D0CA2AC27BFE63200FA5689 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VYYFVMH6ZV;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Dev.ARUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = AR;
+			};
+			name = Debug;
+		};
+		3D0CA2AD27BFE63200FA5689 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VYYFVMH6ZV;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Dev.ARUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = AR;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		3DD2031D27AD6E5A003D0CBB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -602,6 +1019,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -674,16 +1092,22 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = VYYFVMH6ZV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				"GENERATE_INFOPLIST_FILE[sdk=*]" = YES;
+				"INFOPLIST_FILE[sdk=*]" = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Give it to me";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiredDeviceCapabilities = "arkit armv7";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				"INFOPLIST_PREPROCESSOR_DEFINITIONS[sdk=*]" = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -691,8 +1115,10 @@
 				);
 				MARKETING_VERSION = 1.0;
 				NEW_SETTING = "";
-				PRODUCT_BUNDLE_IDENTIFIER = Dev.FindAR;
+				NEW_SETTING1 = "";
+				PRODUCT_BUNDLE_IDENTIFIER = Dev.FindAR123;
 				PRODUCT_NAME = FindAR;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -707,14 +1133,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = VYYFVMH6ZV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_FILE[sdk=*]" = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Give it to me";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiredDeviceCapabilities = "arkit armv7";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -724,9 +1154,11 @@
 				);
 				MARKETING_VERSION = 1.0;
 				NEW_SETTING = "";
+				NEW_SETTING1 = "";
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = Dev.FindAR;
 				PRODUCT_NAME = FindAR;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -869,6 +1301,33 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3D0CA2A527BFE63200FA5689 /* Build configuration list for PBXNativeTarget "AR" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3D0CA2A627BFE63200FA5689 /* Debug */,
+				3D0CA2A727BFE63200FA5689 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3D0CA2A827BFE63200FA5689 /* Build configuration list for PBXNativeTarget "ARTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3D0CA2A927BFE63200FA5689 /* Debug */,
+				3D0CA2AA27BFE63200FA5689 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3D0CA2AB27BFE63200FA5689 /* Build configuration list for PBXNativeTarget "ARUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3D0CA2AC27BFE63200FA5689 /* Debug */,
+				3D0CA2AD27BFE63200FA5689 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		3DD202ED27AD6E59003D0CBB /* Build configuration list for PBXProject "FindAR" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -915,6 +1374,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3D2973F727C68028005E575E /* XCRemoteSwiftPackageReference "FocusEntity" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/maxxfrazer/FocusEntity";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3D2973F827C68028005E575E /* FocusEntity */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3D2973F727C68028005E575E /* XCRemoteSwiftPackageReference "FocusEntity" */;
+			productName = FocusEntity;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3DD202EA27AD6E59003D0CBB /* Project object */;
 }

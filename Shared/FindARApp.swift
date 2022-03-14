@@ -10,6 +10,7 @@ import Firebase
 
 @main
 struct FindARApp: App {
+//    @StateObject var placemenetSettings=PlacementSettings()
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 
     var body: some Scene {
@@ -18,6 +19,7 @@ struct FindARApp: App {
 
             ContentView()
                 .environmentObject(viewModel)
+//                .environmentObject(placemenetSettings)
         }
     }
     

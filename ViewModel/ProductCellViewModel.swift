@@ -9,10 +9,13 @@
 
 import Foundation
 import Combine
+import UIKit
 
 class ProductCellViewModel: ObservableObject, Identifiable{
     @Published var productRepo=ProductRepository()
     @Published var product: Product
+//    @Published var thumbnail:UIImage
+//    @Published var model:
     var id:String = ""
     private var cancellable = Set<AnyCancellable>()
     var ifCompletedIcon: String = ""
@@ -28,7 +31,7 @@ class ProductCellViewModel: ObservableObject, Identifiable{
         .store(in: &cancellable)
     }
     static func newTask() -> ProductCellViewModel {
-        ProductCellViewModel(product: Product(productName: "", company: "", description: "", category: ""))
+        ProductCellViewModel(product: Product(productName: "", company: "", description: "", category: "",imageName:"",usdzName:""))//TODO: Add model and thumbnail
     }
     
 
