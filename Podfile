@@ -9,9 +9,9 @@ target 'FindAR (iOS)' do
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
-  pod 'Firebase/Storage'
   pod 'FirebaseFirestore'
   pod 'FirebaseFirestoreSwift'
+  pod ‘SDWebImageSwiftUI’
 
 end
 
@@ -23,7 +23,7 @@ target 'FindAR (macOS)' do
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
-  pod 'Firebase/Storage'
   pod 'FirebaseFirestore'
   pod 'FirebaseFirestoreSwift'
+
 end

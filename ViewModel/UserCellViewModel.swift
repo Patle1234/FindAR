@@ -11,6 +11,7 @@ import Combine
 class UserCellViewModel: ObservableObject, Identifiable{
     @Published var userRepo=UserRepository()
     @Published var user: User
+    
     var id:String = ""
     private var cancellable = Set<AnyCancellable>()
     var ifCompletedIcon: String = ""

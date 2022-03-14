@@ -7,40 +7,34 @@
 
 import SwiftUI
 import FirebaseAuth
-import QuickLook
-import ARKit
-import RealityKit
-import AVFoundation
-import Photos
-import Combine
-import FirebaseStorage
+import CoreTelephony
 
-//WKWebView
 struct ContentView: View {
-
     @EnvironmentObject var viewModel: SignIn
     var body: some View {
         NavigationView{
+           
             if viewModel.signedIn {
-                //WHEN SIGNED IN
-                //let _ = allowPerms()
+                //TODO: WHEN SIGNED IN
                 mainView()
+
             }else{
                 enterView()
             }
         }
         .onAppear{
             //REMOVE THE ! LATER ON
-            viewModel.signedIn = viewModel.isSignedIn
-        }
+            viewModel.signedIn = !viewModel.isSignedIn
 
+            
+            
+        }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-//            .environmentObject(PlacementSettings())
     }
 }
 
@@ -110,6 +104,7 @@ struct enterView: View {
                         
 
                     }
+                    //.fill(Color.black)
                     
                 }
             })
@@ -117,7 +112,9 @@ struct enterView: View {
             
             
         }
-
+       // .padding(.top,30)
+         
+        //Spacer()
             
             if index==0{
                 SignInView()
@@ -245,10 +242,38 @@ struct SignUpView: View {
     }
 }
 
+
+
+
+
+
+
+//struct SignInView: View {
+//    var body: some View {
+//
+//        Button("Joe", action: {
+//                           print("?")
+//
+//
+//                       }
+//    )}
+//}
+
+
+
+
+
+
+
+
+
+
+
+
 struct Card: Identifiable {
     let id = UUID()
     let name: String
-    let imageName: String
+//    let imageName: String
    
 //    let age: Int
     let company: String
@@ -261,9 +286,27 @@ struct Card: Identifiable {
     var degree: Double = 0.0
     @ObservedObject var prodVM = ProductListViewModel()
     var prodsArr = ProductListViewModel().ProductCellViewModels
+//    let _ = print(ProductListViewModel().ProductCellViewModels.count)
+    let _2 = print("betaaa")
+ 
+    
+//    static var data: [Card] {
+//        [
+//            Card(name: "Treadmill", imageName: "treadmill",  company: "Athletico"),
+//            Card(name: "Dumbbell", imageName: "dumbbell",  company: "Pena's Weights Inc."),
+//            Card(name: "Bike", imageName: "bike", company: "Lifetime Fitness")]
+//
+//    }
+            
+
+        
+            
+    
     
     
 }
+
+
 struct cardView: View{
     @State var ifAddProduct = false
     @State var newProductName=""
@@ -281,18 +324,42 @@ struct cardView: View{
         VStack{
         ZStack{
             
+            
+                
+                
             ForEach(prodVM.ProductCellViewModels.reversed()) {product in
-                CardView(card: Card(name: product.product.productName, imageName: product.product.imageName,  company: product.product.company, prod: product.product))
+<<<<<<< Updated upstream
+                
+                let ___ = print("okok")
+//                let _ = stuff.append(product)
+//                let __ = print(stuff)
+                CardView(card: Card(name: product.product.productName, imageName: "dumbbell",  company: product.product.company, prod: product.product))
+=======
+                CardView(card: Card(name: product.product.productName,  company: product.product.company, prod: product.product))
+>>>>>>> Stashed changes
             }
+            
             
         }.frame(width: 350, height: 550, alignment: .center)
         .padding(15)
         .zIndex(1.0)
         .offset(y: -50)
-
+        
+        
+        
+        
             HStack{
                 Spacer()
-                Button(action: {
+                Button(action: {//add a task button
+                    
+                    
+                    
+//                    productRepo.addProduct(Product(productName: "dumbbells", company: "Lifetime Fitness", description: "20 lbs", category: "Workout items"))
+                    
+                    
+                    
+                    
+                    
                     //TODO: uncomment later
                     ifAddProduct.toggle()
                 }, label: {
@@ -343,6 +410,14 @@ struct cardView: View{
                 .background(Color("Blue"))
                 .padding()
             
+//            Picker("Select a paint color", selection: $category) {
+//                            ForEach(categoriesTemp, id: \.self) {
+//                                Text($0)
+//                            }
+//                        }
+//            .pickerStyle(.wheel)
+//            .padding()
+            
             
           //TODO: make this look nicer;  wheel picker?
             Picker(
@@ -351,13 +426,23 @@ struct cardView: View{
                 HStack {
                     Text("Category:")
                     Text(newCategory)
-                },
+                }
+//                    .font(.headline)
+//                    .foregroundColor(.white)
+//                    .padding()
+//                    .padding(.horizontal)
+//                    .background(Color.blue)
+//                    .cornerRadius(10)
+                    
+                   ,
                    content: {
                 ForEach(categoriesTemp, id: \.self) { option in
                     HStack{
                         Text(option)
                     }
                     .tag(option)
+                    
+                       
                 }
             }).pickerStyle(MenuPickerStyle())
                 .padding()
@@ -371,10 +456,15 @@ struct cardView: View{
                    guard !newProductName.isEmpty, !newCompany.isEmpty, !newDescription.isEmpty, !newCategory.isEmpty else {//if the textfields are empty
                        return
                    }
+                   print("test")
                    
-                   //TODO: WE NEED TO CHANGE IMAGE NAME AND USDZ NAME TO
-                   var newProd = Product(productName: newProductName, company: newCompany, description: newDescription, category: newCategory,imageName:"pe",usdzName:"ura")
+                   //vraj here is new product newProd variable
+                   var newProd = Product(productName: newProductName, company: newCompany, description: newDescription, category: newCategory)
                    prodVM.addProduct(product: newProd)
+                 
+                   
+//                    productRepo.addProduct(Product(productName: "dumbbells", company: "Lifetime Fitness", description: "20 lbs", category: "Workout items"))
+                   
                    
                    newProductName=""
                    newCompany = ""
@@ -392,27 +482,237 @@ struct cardView: View{
                     .background(Rectangle()
                                     .foregroundColor(Color("Blue"))
                                     .frame(width: 1000, height: 1000))
+            
         })
+        //dont delete
+        .onAppear(perform: addProdcuts)
 //        .background(Rectangle()
 //                        .foregroundColor(Color("Blue"))
 //                        .frame(width: 1000, height: 1000))
+//    }
+    }
+        //dont delete
+    func addProdcuts(){
+        
+        //columns.removeAll()
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
+//        print("Array")
+//            if (prodVM.returnProduct().productName != ""){
+//        productList.append(prodVM.returnProduct())
+//            }
+//        print(productList)
+//        addProdcuts()
+    }
+    }
+    
+    
+
+let events = ["Birthday", "Funeral", "Race", "Mom"]
+let data = ["Treadmill", "Bike", "Car", "Computer","Ipad", "Tablet", "Screen"]
+ 
+struct Events: Identifiable {
+    var id = UUID()
+    var name: String
+    var isExpanded: Bool
+}
+<<<<<<< Updated upstream
+var eventList = [
+    Events(name: "Funeral", isExpanded: false),
+    Events(name: "Funeral", isExpanded: false),
+    Events(name: "Funeral", isExpanded: false)
+ ]
+
+struct productListItems: Identifiable {
+    var id = UUID()
+    var name: String
+    var desc: String
+    var image: String
+//    var image: String
+}
+var products = [
+    productListItems(name: "Treadmill", desc: "Desc here", image: "treadmill"),
+    productListItems(name: "Bike", desc: "Desc here", image:"bike"),
+    productListItems(name: "Book", desc: "You use this to train your eyes and knowledge", image: "book")
+ 
+]
+public var productsList = [Product(id: "", productId: "", productName: "", company: "", description: "", category: "")]
+
+public var columns = Array(repeating: GridItem(.flexible(), spacing: 10), count: 2)
+
+=======
+               
+//
+//func loadImageFromFirebase(name:String) {
+//    let storageRef = Storage.storage().reference(withPath: "thumbnails/\(name).jpeg")//TODO: ONLY JPEG FILES WORK FOR NOW
+//    print(storageRef)
+//    storageRef.downloadURL { (url, error) in
+//        if error != nil {
+//            print("error")
+//            print((error?.localizedDescription)!)
+//            return
+//        }else{
+//            self.imageURL = url!
+//        }
+//    }
+//}
+//}
+>>>>>>> Stashed changes
+
+struct saveView: View{
+    @State private var isExpanded = false
+     @State private var selNum = "";
+    let spacing: CGFloat = 10
+    @State private var numberOfRows = 2
+
+
+    var body: some View {
+       
+        ScrollView {
+            LazyVGrid(columns: columns, spacing: spacing) {
+                ForEach(0..<CardView.productList.count) { num in
+                    ItemView(product: CardView.productList[num])
+                }
+                
+                
+            }.padding(.horizontal)
+
+        
+            
+        }.background(Color.white)
+        
+        
+            .onAppear(perform: print)
+            }
+    func print(){
+        Swift.print("Array")
+        Swift.print(CardView.productList)
+    }
+    
+  
+    }
+struct ItemView: View{
+    
+    let product: Product
+    var body: some View{
+        GeometryReader {
+            reader in
+            VStack(spacing: 5){
+                Image("treadmill")
+                    .resizable()
+                    .scaledToFit()
+                    .foregroundColor(Color.blue)
+                    .frame(width:50)
+                Text(product.productName)
+                    .font(.system(size: 20, weight: .bold, design: .rounded))
+                    .foregroundColor(Color.black.opacity(0.9))
+                            
+            }.frame(width: reader.size.width, height: reader.size.height)
+                .background(Color.white)
+        }.frame(height:150)
+            .clipShape(RoundedRectangle(cornerRadius: 20))
+            .shadow(color: Color.black.opacity(0.2), radius: 10,y: 5)
+            //.onAppear(perform: delete)
+    }
+//    func delete(){
+//        columns.removeAll()
+//    }
+}
+struct eventView: View{
+    @State private var isExpanded = false
+    @State private var selNum = "";
+    @State private var showEventAdd = false;
+    @State private var eventInp: String = ""
+
+
+    var body: some View{
+        VStack{
+        List{
+                            ForEach (eventList) { myEvents in
+                                DisclosureGroup("\(myEvents.name)", isExpanded: $isExpanded) {
+                                        ScrollView{
+                                            VStack{
+                                                ForEach(data, id: \.self) {
+                                                            myData in
+                                                    Text("\(myData)")
+                                                        .font(.title3)
+                                                        .padding(.all)
+                                                        .onTapGesture {
+                                                            self.selNum = myData
+                                                        withAnimation{
+                                                            self.isExpanded
+                                                            .toggle()
+                                                        }
+                                                        }
+                                                }
+                                            }
+                                        }.frame(height:150)
+                                }.accentColor(.white)
+                                .font(.title2)
+                                .foregroundColor(.white)
+                                .padding(.all)
+                                .background(Color.blue)
+                                .cornerRadius(8)
+                            }
+        
+                        }
+            Button(action: {
+                showEventAdd = true;
+            }, label: {
+                Text("+")
+                    .font(.system(.largeTitle))
+                    .frame(width: 77, height: 70)
+                    .foregroundColor(Color.white)
+                    .padding(.bottom, 7)
+            })
+                .background(Color.blue)
+                .cornerRadius(38.5)
+                .padding()
+                .shadow(color: Color.black.opacity(0.3), radius: 3, x: 3, y: 3)
+                .offset(x: -10, y: -50)
+                
+
+            
+        }                               .background(Rectangle()
+                                        .foregroundColor(Color("Blue"))
+                                        .frame(width: 1000, height: 1000))
+            .sheet(isPresented: $showEventAdd, content: {
+                VStack(){
+                    HStack{
+                        TextField("Add Event Here", text: $eventInp)
+                        
+                    }
+                    Text("d")
+                    Button(action: {
+                            print(eventInp)
+                    }, label: {
+                        Text("+")
+                            .font(.system(.largeTitle))
+                            .frame(width: 77, height: 70)
+                            .foregroundColor(Color.white)
+                            .padding(.bottom, 7)
+                    }).background(Color.blue)
+                        .cornerRadius(38.5)
+                        .padding()
+                        .shadow(color: Color.black.opacity(0.3), radius: 3, x: 3, y: 3)
+                        .offset(x: -10, y: -50)
+                }
+            })
+        
     }
 }
-               
+ 
+    
 
 
 
 struct settingsView: View{//show settings
     @EnvironmentObject var viewModel: SignIn
-    @ObservedObject var userRepo = UserRepository()
+    @ObservedObject var userwhRepo = UserRepository()
     @ObservedObject var userVM = UserListViewModel()
     @State var currentPerson:User
-
+    
     var body: some View {
         VStack{
-
-
-
             Button(action: {
                 viewModel.signOut()
 
@@ -429,9 +729,6 @@ struct settingsView: View{//show settings
 
             Button(action: {
                 userVM.deleteUser(user: currentPerson)
-                
-                let user = Auth.auth().currentUser
-                
                 viewModel.signOut()
             }, label: {
                 Text("Delete Account")
@@ -443,58 +740,63 @@ struct settingsView: View{//show settings
                 .buttonStyle(StyleButton(color: Color("DarkBlue"), forgroundColor: Color("Orange")))
                 .padding()
         }
-    }
-
-}
-
-
-struct ARQLView: UIViewControllerRepresentable {
-    typealias UIViewControllerType = ARQLViewController
-    let fileName:URL
-
-    func makeCoordinator() -> Coordinator {
-        return Coordinator(self)
-    }
-
-    func makeUIViewController(context: Context) -> ARQLViewController {
-        let viewController = ARQLViewController(assetName:fileName )
-        print("fileName:\(fileName)")
-        return viewController
-    }
-
-    func updateUIViewController(_ uiViewController: ARQLViewController, context: Context) {
-    }
-
-    class Coordinator: NSObject {
-        var parent: ARQLView
-        init(_ parent: ARQLView) {
-            self.parent = parent
-        }
+        .background(Rectangle()
+                        .foregroundColor(Color("Blue"))
+                        .frame(width: 1000, height: 1000))
+        
     }
 }
+
+
 
 
 struct mainView: View{
     @EnvironmentObject var viewModel: SignIn
     @ObservedObject var userVM = UserListViewModel()//list object
     @ObservedObject var prodVM = ProductListViewModel()
-    @State var showingPreview=false
-    @State var allowsScaling = false
     let userID=Auth.auth().currentUser?.uid
    
     var body: some View {
-        
+
+//        Button(action: {
+//            viewModel.signOut()
+//
+//        }, label: {
+//            Text("Sign Out")
+//                .frame(width:100, height:30)
+//                .background(Color.black)
+//                .foregroundColor(Color.blue)
+//                .cornerRadius(8)
+//                .padding()
+//                
+//              
+//        })
         TabView{
                     cardView()
-
-                .tabItem({
+                        .tabItem({
                             Text("Cards")
                                 .background (Color("Orange"))
                             Image(systemName:"menucard")
                                 .background(Color("Orange"))
                     })
-                    
-            let _ = print("go in seettings")
+        saveView()
+                       
+                               .tabItem({
+                                   Text("Saved Items")
+                                       .background(Color("Red"))
+                                   Image(systemName: "trash")
+                                       .background(Color("Red"))
+                                       
+                               })
+        eventView()
+            
+                    .tabItem({
+                        Text("Events")
+                            .background(Color("Red"))
+                        Image(systemName: "trash")
+                            .background(Color("Red"))
+                    })
+
             ForEach(userVM.UserCellViewModels){currentUser in
 //                let _1 = print("joejeo")
 //                let _3=print(userVM.UserCellViewModels.count)
@@ -512,12 +814,30 @@ struct mainView: View{
                         })
                 }
             }
+        
+        
+            
         }
+
         
         VStack{
+           
+
+                
+//                ZStack{
+//
+//                    ForEach(Card.data.reversed()) { card in
+//                        CardView(card: card)
+//                    }
+//                }.frame(width: 350, height: 350, alignment: .center)
+//                .padding(8)
+//                .zIndex(1.0)
+//                .offset(y: -50)
             
         }.background(Color(red: 0.785, green: 0.785, blue: 0.785))
+    }
+ 
     
-}
+   
 }
 
