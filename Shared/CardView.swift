@@ -5,8 +5,6 @@
 //  Created by ritesh patel on 19/02/2021.
 //
 import SwiftUI
-import FirebaseStorage
-import SDWebImageSwiftUI
 
 struct CardView: View {
     @State var card: Card
@@ -15,10 +13,6 @@ struct CardView: View {
     static var ProductRecent:Product = Product(id: nil, productId: nil, productName: "", company: "", description: "", category: "")
     @State var productsList = []
     static var productList = [Product(id: nil, productId: nil, productName: "", company: "", description: "", category: "")]
-    @State var ifView = false
-    @State private var modelURL = URL(string: "https://firebasestorage.googleapis.com/v0/b/findar-4a4c0.appspot.com/o/models%2FLemonMeringuePie.usdz?alt=media&token=50550229-5f6a-4741-936c-8519ac6f7bca")//URL(string: "https://firebasestorage.googleapis.com/v0/b/findar-4a4c0.appspot.com/o/models%2FLemonMeringuePie.usdz?alt=media&token=50550229-5f6a-4741-936c-8519ac6f7bca")
-    @State private var imageURL = URL(string: "https://firebasestorage.googleapis.com/v0/b/findar-4a4c0.appspot.com/o/thumbnails%2FPegusus.jpeg?alt=media&token=4c0afbac-9300-4c25-8253-efe8459adc32")
-    @State private var showSafari: Bool = false
 
     // MARK: - Drawing Constant
     let cardGradient = Gradient(colors: [Color.black.opacity(0.0), Color.black.opacity(0.0)])
@@ -28,9 +22,10 @@ struct CardView: View {
     var body: some View {
  
         ZStack(alignment: .topLeading) {
-            WebImage(url: imageURL!)
+            Image(card.imageName)
                 .resizable()
                 .clipped()
+                
                 .scaleEffect(x: 0.8, y: 0.5, anchor: .center)
             
             // Linear Gradient
@@ -41,26 +36,6 @@ struct CardView: View {
                     HStack {
                         Text(card.name).font(.largeTitle).fontWeight(.bold).foregroundColor(.red)
 //                        Text(String(card.age)).font(.title)
-        Button(action: {
-            ifView.toggle()
-        }, label: {
-            ZStack(alignment: .topLeading) {
-                WebImage(url: imageURL!)
-                    .resizable()
-                    .clipped()
-                    .scaleEffect(x: 0.8, y: 0.5, anchor: .center)
-                //                Image(card.imageName)
-
-                
-                // Linear Gradient
-                LinearGradient(gradient: cardGradient, startPoint: .top, endPoint: .bottom)
-                VStack {
-                    Spacer()
-                    VStack(alignment: .leading){
-                        HStack {
-                            Text(card.name).font(.largeTitle).fontWeight(.bold).foregroundColor(.red)
-                        }
-                        
                     }
                     
                 }
@@ -123,83 +98,9 @@ struct CardView: View {
                     }
                 }
         )
-            )
-        })
-            .sheet(isPresented: $ifView, content: {
-                let _=loadImageFromFirebase(name: card.prod.imageName)
-                HStack{
-                    VStack{
-                        
-                        Text("**\(card.prod.productName)**")
-
-                        Spacer()
-
-//                        Text("\(imageURL?.absoluteString ?? "placeholder")")
-                        WebImage(url: imageURL!)
-                            .resizable()
-                            .clipped()
-                            .scaleEffect(x: 1, y: 1, anchor: .center)
-                        
-                        Text("Description: \(card.prod.description)")
-                        Spacer()
-                        Text("Catagory: \(card.prod.category)")
-                        Spacer()
-                        Text("Show the AR")
-                             .foregroundColor(.blue)
-                             .padding()
-                             .onTapGesture {
-                                 showSafari.toggle()
-
-                             }
-                             .fullScreenCover(isPresented: $showSafari, content: {
-                                 let _=self.loadModelFromFirebase(name:card.prod.usdzName)
-                                 
-//                                 let _=print("modelURL in guesture: \(self.modelURL!)")
-                                 SFSafariViewWrapper(url:self.modelURL! )
-                                 
-                             })
-                    }
-
-
-                }
-
-            }
-            )
-
- 
-    }
-    
-    func loadModelFromFirebase(name:String) {
-        print("called: models/\(name).usdz")
-        let storageRef = Storage.storage().reference(withPath: "models/\(name).usdz")
-        print(storageRef)
-        storageRef.downloadURL { (url, error) in
-            if error != nil {
-                print("error")
-                print((error?.localizedDescription)!)
-                return
-            }else{
-                self.modelURL = url!
-                print("modelURL: \(self.modelURL!)")
-                SFSafariViewWrapper(url:self.modelURL!)
-            }
-        }
-    }
-
-func loadImageFromFirebase(name:String) {
-    let storageRef = Storage.storage().reference(withPath: "thumbnails/\(name).jpeg")//TODO: ONLY JPEG FILES WORK FOR NOW
-    print(storageRef)
-    storageRef.downloadURL { (url, error) in
-        if error != nil {
-            print("error")
-            print((error?.localizedDescription)!)
-            return
-        }else{
-            self.imageURL = url!
-            print("imageURL: for image:\(imageURL) ")
-        }
     }
 }
+
 
 
 //struct CardView_Previews: PreviewProvider {
@@ -208,4 +109,3 @@ func loadImageFromFirebase(name:String) {
 //            .previewLayout(.sizeThatFits)
 //    }
 //}
-            }

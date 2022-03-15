@@ -273,7 +273,7 @@ struct SignUpView: View {
 struct Card: Identifiable {
     let id = UUID()
     let name: String
-//    let imageName: String
+    let imageName: String
    
 //    let age: Int
     let company: String
@@ -328,15 +328,11 @@ struct cardView: View{
                 
                 
             ForEach(prodVM.ProductCellViewModels.reversed()) {product in
-<<<<<<< Updated upstream
                 
                 let ___ = print("okok")
 //                let _ = stuff.append(product)
 //                let __ = print(stuff)
                 CardView(card: Card(name: product.product.productName, imageName: "dumbbell",  company: product.product.company, prod: product.product))
-=======
-                CardView(card: Card(name: product.product.productName,  company: product.product.company, prod: product.product))
->>>>>>> Stashed changes
             }
             
             
@@ -515,12 +511,7 @@ struct Events: Identifiable {
     var name: String
     var isExpanded: Bool
 }
-<<<<<<< Updated upstream
-var eventList = [
-    Events(name: "Funeral", isExpanded: false),
-    Events(name: "Funeral", isExpanded: false),
-    Events(name: "Funeral", isExpanded: false)
- ]
+
 
 struct productListItems: Identifiable {
     var id = UUID()
@@ -539,24 +530,6 @@ public var productsList = [Product(id: "", productId: "", productName: "", compa
 
 public var columns = Array(repeating: GridItem(.flexible(), spacing: 10), count: 2)
 
-=======
-               
-//
-//func loadImageFromFirebase(name:String) {
-//    let storageRef = Storage.storage().reference(withPath: "thumbnails/\(name).jpeg")//TODO: ONLY JPEG FILES WORK FOR NOW
-//    print(storageRef)
-//    storageRef.downloadURL { (url, error) in
-//        if error != nil {
-//            print("error")
-//            print((error?.localizedDescription)!)
-//            return
-//        }else{
-//            self.imageURL = url!
-//        }
-//    }
-//}
-//}
->>>>>>> Stashed changes
 
 struct saveView: View{
     @State private var isExpanded = false
@@ -617,18 +590,25 @@ struct ItemView: View{
 //        columns.removeAll()
 //    }
 }
+class ProductListModel: ObservableObject {
+    @Published var prodList: [Product] = [Product(id: "", productId: "", productName: "f", company: "", description: "", category: "")]
+}
 struct eventView: View{
+    @StateObject var viewModel = ProductListModel()
     @State private var isExpanded = false
     @State private var selNum = "";
     @State private var showEventAdd = false;
     @State private var eventInp: String = ""
+    @State private var eventList: [String] = ["Funeral","mommy ", "NYC"]
 
 
     var body: some View{
+        
         VStack{
+           
         List{
-                            ForEach (eventList) { myEvents in
-                                DisclosureGroup("\(myEvents.name)", isExpanded: $isExpanded) {
+            ForEach (eventList, id:\.self) { myEvents in
+                                DisclosureGroup("\(myEvents)", isExpanded: $isExpanded) {
                                         ScrollView{
                                             VStack{
                                                 ForEach(data, id: \.self) {
@@ -655,8 +635,11 @@ struct eventView: View{
                             }
         
                         }
+            
+           
             Button(action: {
                 showEventAdd = true;
+                viewModel.prodList.append(Product(id: "", productId: "", productName: "h", company: "", description: "", category: ""))
             }, label: {
                 Text("+")
                     .font(.system(.largeTitle))
@@ -669,37 +652,63 @@ struct eventView: View{
                 .padding()
                 .shadow(color: Color.black.opacity(0.3), radius: 3, x: 3, y: 3)
                 .offset(x: -10, y: -50)
-                
-
             
         }                               .background(Rectangle()
                                         .foregroundColor(Color("Blue"))
                                         .frame(width: 1000, height: 1000))
             .sheet(isPresented: $showEventAdd, content: {
                 VStack(){
-                    HStack{
-                        TextField("Add Event Here", text: $eventInp)
+                    Spacer()
+                TextField("Add Event Here", text: $eventInp)
                         
+                    
+                    NavigationView{
+                    List{
+                        ForEach(0..<CardView.productList.count) { num in
+                            HStack{
+                                VStack(alignment: .leading){
+                                    Text("\(CardView.productList[num].productName)")
+                                        .font(.system(size: 18, weight: .bold))
+                                    Text("\(CardView.productList[num].description)")
+                            }
+                                
+                                Image("treadmill")
+                                    .resizable()
+                                    .frame(width: 100, height: 100)
+                                    .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
+                                Button(action: {
+                                    Index
+                                    //print("Button action")
+                                }) {
+                                    Text("+")
+                                        .font(.system(.title))
+                                        
+                                }
+                                
+                            }
+                            .onTapGesture {
+                                inde
+                            }
+                            
                     }
-                    Text("d")
+                    }.navigationBarTitle("Products")
+                                                
+                        
+                    
+                }
                     Button(action: {
-                            print(eventInp)
-                    }, label: {
-                        Text("+")
-                            .font(.system(.largeTitle))
-                            .frame(width: 77, height: 70)
-                            .foregroundColor(Color.white)
-                            .padding(.bottom, 7)
-                    }).background(Color.blue)
-                        .cornerRadius(38.5)
-                        .padding()
-                        .shadow(color: Color.black.opacity(0.3), radius: 3, x: 3, y: 3)
-                        .offset(x: -10, y: -50)
+                        eventList.append(eventInp)
+
+                    }) {
+                        Text("Create Event")
+                    }
+                       
+                        
                 }
             })
-        
     }
 }
+
  
     
 
@@ -754,6 +763,7 @@ struct mainView: View{
     @EnvironmentObject var viewModel: SignIn
     @ObservedObject var userVM = UserListViewModel()//list object
     @ObservedObject var prodVM = ProductListViewModel()
+    @State private var show = true
     let userID=Auth.auth().currentUser?.uid
    
     var body: some View {
@@ -795,6 +805,8 @@ struct mainView: View{
                             .background(Color("Red"))
                         Image(systemName: "trash")
                             .background(Color("Red"))
+                            
+
                     })
 
             ForEach(userVM.UserCellViewModels){currentUser in
