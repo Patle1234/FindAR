@@ -29,6 +29,8 @@
 		3D480C0E27B6A7D900992BA8 /* StyleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D480C0C27B6A7D900992BA8 /* StyleButton.swift */; };
 		3D60E08C27AE47160077616F /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D60E08B27AE47160077616F /* SignIn.swift */; };
 		3D60E08D27AE47160077616F /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D60E08B27AE47160077616F /* SignIn.swift */; };
+		3D9DCE2927E92C6600FA9704 /* SFSafariViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9DCE2827E92C6500FA9704 /* SFSafariViewWrapper.swift */; };
+		3D9DCE2A27E92C6600FA9704 /* SFSafariViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9DCE2827E92C6500FA9704 /* SFSafariViewWrapper.swift */; };
 		3DCE8C8B27AF8C7400168C21 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3DCE8C8A27AF8C7400168C21 /* GoogleService-Info.plist */; };
 		3DD2030827AD6E5A003D0CBB /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD2030727AD6E5A003D0CBB /* Tests_iOS.swift */; };
 		3DD2030A27AD6E5A003D0CBB /* Tests_iOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD2030927AD6E5A003D0CBB /* Tests_iOSLaunchTests.swift */; };
@@ -73,6 +75,7 @@
 		3D480C0927B58F3C00992BA8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3D480C0C27B6A7D900992BA8 /* StyleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleButton.swift; sourceTree = "<group>"; };
 		3D60E08B27AE47160077616F /* SignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignIn.swift; sourceTree = "<group>"; };
+		3D9DCE2827E92C6500FA9704 /* SFSafariViewWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SFSafariViewWrapper.swift; sourceTree = "<group>"; };
 		3DCE8C8A27AF8C7400168C21 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3DD202EF27AD6E5A003D0CBB /* FindARApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindARApp.swift; sourceTree = "<group>"; };
 		3DD202F027AD6E5A003D0CBB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; wrapsLines = 0; };
@@ -178,6 +181,7 @@
 		3DD202EE27AD6E5A003D0CBB /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				3D9DCE2827E92C6500FA9704 /* SFSafariViewWrapper.swift */,
 				A094717A27B1F382003F3C94 /* CardView.swift */,
 				3DD202F027AD6E5A003D0CBB /* ContentView.swift */,
 				3DD202EF27AD6E5A003D0CBB /* FindARApp.swift */,
@@ -493,6 +497,7 @@
 				3D0CA27727BD476E00FA5689 /* ProductRepository.swift in Sources */,
 				3D0CA26B27BD470A00FA5689 /* ProductCellViewModel.swift in Sources */,
 				3D480C0A27B58F3C00992BA8 /* User.swift in Sources */,
+				3D9DCE2927E92C6600FA9704 /* SFSafariViewWrapper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -513,6 +518,7 @@
 				3DD2031827AD6E5A003D0CBB /* FindARApp.swift in Sources */,
 				3D480C0B27B58F3C00992BA8 /* User.swift in Sources */,
 				3D0CA26C27BD470A00FA5689 /* ProductCellViewModel.swift in Sources */,
+				3D9DCE2A27E92C6600FA9704 /* SFSafariViewWrapper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -691,7 +697,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				NEW_SETTING = "";
-				PRODUCT_BUNDLE_IDENTIFIER = Dev.FindAR;
+				PRODUCT_BUNDLE_IDENTIFIER = Dev.FindAR1;
 				PRODUCT_NAME = FindAR;
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -725,7 +731,7 @@
 				MARKETING_VERSION = 1.0;
 				NEW_SETTING = "";
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = Dev.FindAR;
+				PRODUCT_BUNDLE_IDENTIFIER = Dev.FindAR1;
 				PRODUCT_NAME = FindAR;
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;

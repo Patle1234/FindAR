@@ -18,6 +18,9 @@ public struct Product: Codable {
     var company: String
     var description: String
     var category: String
+    var usdzName: String
+    var imageName: String
+
 //    var usdz: String
     //TODO: FIGURE OUT IMAGE
 //    var image:

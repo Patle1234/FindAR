@@ -274,7 +274,8 @@ struct Card: Identifiable {
     let id = UUID()
     let name: String
     let imageName: String
-   
+    let usdzName: String
+
 //    let age: Int
     let company: String
     let prod: Product
@@ -332,7 +333,7 @@ struct cardView: View{
                 let ___ = print("okok")
 //                let _ = stuff.append(product)
 //                let __ = print(stuff)
-                CardView(card: Card(name: product.product.productName, imageName: "dumbbell",  company: product.product.company, prod: product.product))
+                CardView(card: Card(name: product.product.productName, imageName: "dumbell", usdzName: "", company: product.product.company,prod:product.product ))
             }
             
             
@@ -442,9 +443,6 @@ struct cardView: View{
                 }
             }).pickerStyle(MenuPickerStyle())
                 .padding()
-                
-            
-
                Button(action: {
                    ifAddProduct.toggle()
                    //TODO: ADD THE PRODUCT TO FIREBASE
@@ -455,7 +453,7 @@ struct cardView: View{
                    print("test")
                    
                    //vraj here is new product newProd variable
-                   var newProd = Product(productName: newProductName, company: newCompany, description: newDescription, category: newCategory)
+                   var newProd = Product(productName: newProductName, company: newCompany, description: newDescription, category: newCategory,usdzName: "",imageName: "")//TODO: CHANGE THIS TO ADD IMAGE AND USDZ
                    prodVM.addProduct(product: newProd)
                  
                    
@@ -530,7 +528,7 @@ var products = [
     productListItems(name: "Book", desc: "You use this to train your eyes and knowledge", image: "book")
  
 ]
-public var productsList = [Product(id: "", productId: "", productName: "", company: "", description: "", category: "")]
+public var productsList = [Product(id: "", productId: "", productName: "", company: "", description: "", category: "",usdzName:"", imageName:"")]
 
 public var columns = Array(repeating: GridItem(.flexible(), spacing: 10), count: 2)
 
