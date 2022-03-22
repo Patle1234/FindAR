@@ -12,12 +12,12 @@ struct CardView: View {
     @State var card: Card
     @State private var showSafari: Bool = false
     @State var ifLikeProd = false
-    @State var ifLoading = false
+    @State var ifLoading = true
     @ObservedObject var prodVM = ProductListViewModel()
     static var ProductRecent:Product = Product(id: nil, productId: nil, productName: "", company: "", description: "", category: "",usdzName:"", imageName:"")
     @State var productsList = []
     static var productList = [Product(id: nil, productId: nil, productName: "", company: "", description: "", category: "",usdzName: "", imageName: "")]
-    @State private var imageURL = URL(string: "https://firebasestorage.googleapis.com/v0/b/findar-4a4c0.appspot.com/o/thumbnails%2FPegusus.jpeg?alt=media&token=4c0afbac-9300-4c25-8253-efe8459adc32")
+    @State private var imageURL = URL(string: "//")
     @State private var modelURL = URL(string: "//")
     @State var ifView = false
     
@@ -135,25 +135,31 @@ struct CardView: View {
                          }
                          .fullScreenCover(isPresented: $showSafari, content: {
                              let _=self.loadModelFromFirebase(name:card.prod.usdzName)
+                             ZStack{
+                                 
+                                 if(ifLoading){
+                                     LoadingView()
+                                 }else{
+                                     SFSafariViewWrapper(url:self.modelURL!)
 
-//                                 let _=print("modelURL in guesture: \(self.modelURL!)")
-                             SFSafariViewWrapper(url:self.modelURL!)
-
+                                 }
+                                 
+                             }
+                             .onAppear{
+                                 startNetworkCall()
+                             }
                          })
                 }
-                    if(ifLoading){
-                        LoadingView()
 
-                    }
                 }
-            }.onAppear{startNetworkCall()}
+            }
     })
                }
 
     func startNetworkCall(){
         ifLoading=true
         DispatchQueue.main.asyncAfter(deadline: .now()+3){
-            if(modelURL?.absoluteString ?? "//" == "//"){
+            if(modelURL?.absoluteString ?? "" == "//"){
                 let _=print("Firebase Storage Hasn't Updated Model Yet!")
                 startNetworkCall()
             }else{
@@ -190,7 +196,6 @@ func loadImageFromFirebase(name:String) {
             return
         }else{
             self.imageURL = url!
-            print("imageURL: for image:\(imageURL) ")
         }
     }
 }

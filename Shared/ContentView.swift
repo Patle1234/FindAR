@@ -13,7 +13,8 @@ struct ContentView: View {
     @EnvironmentObject var viewModel: SignIn
     var body: some View {
         NavigationView{
-           
+//           let _ = viewModel.signOut()
+
             if viewModel.signedIn {
                 //TODO: WHEN SIGNED IN
                 mainView()
@@ -771,15 +772,13 @@ struct mainView: View{
                         Image(systemName: "trash")
                             .background(Color("Red"))
                     })
-
+            
+            let _=print("in obvious")
             ForEach(userVM.UserCellViewModels){currentUser in
-//                let _1 = print("joejeo")
-//                let _3=print(userVM.UserCellViewModels.count)
-                
-              
-                
+                let _=print("running")
+                let _=print("userName: \(currentUser.user.userName)")
                 if((currentUser.user.userId)==userID){
-//                    let _2=print("helloji")
+                    let _=print("user is:\(currentUser.user.userName)")
                     settingsView(currentPerson: currentUser.user)
                         .tabItem({
                             Image(systemName:"gear")
