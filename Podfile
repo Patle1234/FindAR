@@ -13,6 +13,8 @@ target 'FindAR (iOS)' do
   pod 'FirebaseFirestoreSwift'
   pod 'Firebase/Storage'
   pod 'SDWebImageSwiftUI'
+  pod 'GoogleSignIn'
+
 end
 
 target 'FindAR (macOS)' do

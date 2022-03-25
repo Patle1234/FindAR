@@ -8,13 +8,13 @@
 import SwiftUI
 import FirebaseAuth
 import CoreTelephony
+import GoogleSignIn
 
 struct ContentView: View {
     @EnvironmentObject var viewModel: SignIn
     var body: some View {
         NavigationView{
-//           let _ = viewModel.signOut()
-
+           
             if viewModel.signedIn {
                 //TODO: WHEN SIGNED IN
                 mainView()
@@ -275,8 +275,7 @@ struct Card: Identifiable {
     let id = UUID()
     let name: String
     let imageName: String
-    let usdzName: String
-
+   
 //    let age: Int
     let company: String
     let prod: Product
@@ -299,13 +298,6 @@ struct Card: Identifiable {
 //            Card(name: "Bike", imageName: "bike", company: "Lifetime Fitness")]
 //
 //    }
-            
-
-        
-            
-    
-    
-    
 }
 
 
@@ -325,38 +317,23 @@ struct cardView: View{
     var body: some View {
         VStack{
         ZStack{
-            
-            
-                
-                
             ForEach(prodVM.ProductCellViewModels.reversed()) {product in
                 
                 let ___ = print("okok")
 //                let _ = stuff.append(product)
 //                let __ = print(stuff)
-                CardView(card: Card(name: product.product.productName, imageName: "dumbell", usdzName: "", company: product.product.company,prod:product.product ))
+                CardView(card: Card(name: product.product.productName, imageName: product.product.imageName,  company: product.product.company, prod: product.product))
             }
-            
-            
-        }.frame(width: 350, height: 550, alignment: .center)
+        }.frame(width: 350, height:550, alignment: .center)
         .padding(15)
         .zIndex(1.0)
         .offset(y: -50)
-        
-        
-        
         
             HStack{
                 Spacer()
                 Button(action: {//add a task button
                     
-                    
-                    
 //                    productRepo.addProduct(Product(productName: "dumbbells", company: "Lifetime Fitness", description: "20 lbs", category: "Workout items"))
-                    
-                    
-                    
-                    
                     
                     //TODO: uncomment later
                     ifAddProduct.toggle()
@@ -372,7 +349,6 @@ struct cardView: View{
                     .padding()
                     .shadow(color: Color.black.opacity(0.3), radius: 3, x: 3, y: 3)
                     .offset(x: -10, y: -50)
-                    
             }
         }
         .background(Rectangle()
@@ -380,7 +356,7 @@ struct cardView: View{
                         .frame(width: 1000, height: 1000))
         .sheet(isPresented: $ifAddProduct, content: {
             VStack{
-            
+    
             TextField("Product Name",text: $newProductName)
                 .disableAutocorrection(true)
                 .autocapitalization(.none)
@@ -407,7 +383,6 @@ struct cardView: View{
                 .foregroundColor(Color("DarkBlue"))
                 .background(Color("Blue"))
                 .padding()
-            
 //            Picker("Select a paint color", selection: $category) {
 //                            ForEach(categoriesTemp, id: \.self) {
 //                                Text($0)
@@ -454,9 +429,8 @@ struct cardView: View{
                    print("test")
                    
                    //vraj here is new product newProd variable
-                   var newProd = Product(productName: newProductName, company: newCompany, description: newDescription, category: newCategory,usdzName: "",imageName: "")//TODO: CHANGE THIS TO ADD IMAGE AND USDZ
+                   var newProd = Product(productName: newProductName, company: newCompany, description: newDescription, category: newCategory,usdzName:"", imageName:"")
                    prodVM.addProduct(product: newProd)
-                 
                    
 //                    productRepo.addProduct(Product(productName: "dumbbells", company: "Lifetime Fitness", description: "20 lbs", category: "Workout items"))
                    
@@ -505,16 +479,7 @@ struct cardView: View{
 let events = ["Birthday", "Funeral", "Race", "Mom"]
 let data = ["Treadmill", "Bike", "Car", "Computer","Ipad", "Tablet", "Screen"]
  
-struct Events: Identifiable {
-    var id = UUID()
-    var name: String
-    var isExpanded: Bool
-}
-var eventList = [
-    Events(name: "Funeral", isExpanded: false),
-    Events(name: "Funeral", isExpanded: false),
-    Events(name: "Funeral", isExpanded: false)
- ]
+
 
 struct productListItems: Identifiable {
     var id = UUID()
@@ -529,7 +494,7 @@ var products = [
     productListItems(name: "Book", desc: "You use this to train your eyes and knowledge", image: "book")
  
 ]
-public var productsList = [Product(id: "", productId: "", productName: "", company: "", description: "", category: "",usdzName:"", imageName:"")]
+public var productsList = [Product(id: "", productId: "", productName: "", company: "", description: "", category: "",usdzName: "",imageName: "")]
 
 public var columns = Array(repeating: GridItem(.flexible(), spacing: 10), count: 2)
 
@@ -546,7 +511,10 @@ struct saveView: View{
         ScrollView {
             LazyVGrid(columns: columns, spacing: spacing) {
                 ForEach(0..<CardView.productList.count) { num in
+                    if(CardView.productList[num].productName != ""){
                     ItemView(product: CardView.productList[num])
+                    }
+                    
                 }
                 
                 
@@ -555,8 +523,6 @@ struct saveView: View{
         
             
         }.background(Color.white)
-        
-        
             .onAppear(perform: print)
             }
     func print(){
@@ -564,7 +530,6 @@ struct saveView: View{
         Swift.print(CardView.productList)
     }
     
-  
     }
 struct ItemView: View{
     
@@ -593,21 +558,35 @@ struct ItemView: View{
 //        columns.removeAll()
 //    }
 }
+class ProductListModel: ObservableObject {
+    @Published var prodList: [Product] = [Product(id: "", productId: "", productName: "f", company: "", description: "", category: "",usdzName: "",imageName:"")]
+}
+struct Events: Identifiable{
+    var id =  UUID()
+    var name: String
+    var products: Array<String>
+    var show: Bool?
+}
 struct eventView: View{
+    @StateObject var viewModel = ProductListModel()
     @State private var isExpanded = false
     @State private var selNum = "";
     @State private var showEventAdd = false;
     @State private var eventInp: String = ""
+    @State  private var prod: String = ""
+    @State var eventList = [Events(id: UUID(), name: "Birthday", products: ["Balloons", "Pinata"])]
 
 
     var body: some View{
+        
         VStack{
+           
         List{
-                            ForEach (eventList) { myEvents in
-                                DisclosureGroup("\(myEvents.name)", isExpanded: $isExpanded) {
+            ForEach (eventList) { num in
+                DisclosureGroup("\(num.name)", isExpanded: $isExpanded) {
                                         ScrollView{
                                             VStack{
-                                                ForEach(data, id: \.self) {
+                                                ForEach(num.products, id: \.self) {
                                                             myData in
                                                     Text("\(myData)")
                                                         .font(.title3)
@@ -631,8 +610,11 @@ struct eventView: View{
                             }
         
                         }
+            
+           
             Button(action: {
                 showEventAdd = true;
+                viewModel.prodList.append(Product(id: "", productId: "", productName: "h", company: "", description: "", category: "",usdzName:"",imageName:""))
             }, label: {
                 Text("+")
                     .font(.system(.largeTitle))
@@ -645,37 +627,59 @@ struct eventView: View{
                 .padding()
                 .shadow(color: Color.black.opacity(0.3), radius: 3, x: 3, y: 3)
                 .offset(x: -10, y: -50)
-                
-
             
         }                               .background(Rectangle()
                                         .foregroundColor(Color("Blue"))
                                         .frame(width: 1000, height: 1000))
             .sheet(isPresented: $showEventAdd, content: {
                 VStack(){
-                    HStack{
-                        TextField("Add Event Here", text: $eventInp)
+                    Spacer()
+                TextField("Add Event Here", text: $eventInp)
+                    TextField("Enter Product", text: $prod)
                         
+                    
+                    NavigationView{
+                    List{
+                        ForEach(0..<CardView.productList.count) { num in
+                            HStack{
+                                VStack(alignment: .leading){
+                                    Text("\(CardView.productList[num].productName)")
+                                        .font(.system(size: 18, weight: .bold))
+                                    Text("\(CardView.productList[num].description)")
+                            }
+                                Spacer()
+                                
+                                Image("treadmill")
+                                    .resizable()
+                                    .frame(width: 100, height: 100)
+                                    .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
+                               
+                                
+                            }
+                            .onTapGesture {
+                                
+                            }
+                            
                     }
-                    Text("d")
+                    }.navigationBarTitle("Products")
+                                                
+                        
+                    
+                }
                     Button(action: {
-                            print(eventInp)
-                    }, label: {
-                        Text("+")
-                            .font(.system(.largeTitle))
-                            .frame(width: 77, height: 70)
-                            .foregroundColor(Color.white)
-                            .padding(.bottom, 7)
-                    }).background(Color.blue)
-                        .cornerRadius(38.5)
-                        .padding()
-                        .shadow(color: Color.black.opacity(0.3), radius: 3, x: 3, y: 3)
-                        .offset(x: -10, y: -50)
+                        eventList.append(Events(id: UUID(), name: eventInp, products: [prod]))
+                        showEventAdd = false;
+                    }) {
+                        Text("Create Event")
+                    }
+                       
+                        
                 }
             })
-        
     }
+   
 }
+
  
     
 
@@ -730,6 +734,7 @@ struct mainView: View{
     @EnvironmentObject var viewModel: SignIn
     @ObservedObject var userVM = UserListViewModel()//list object
     @ObservedObject var prodVM = ProductListViewModel()
+    @State private var show = true
     let userID=Auth.auth().currentUser?.uid
    
     var body: some View {
@@ -744,8 +749,8 @@ struct mainView: View{
 //                .foregroundColor(Color.blue)
 //                .cornerRadius(8)
 //                .padding()
-//                
-//              
+//
+//
 //        })
         TabView{
                     cardView()
@@ -771,14 +776,18 @@ struct mainView: View{
                             .background(Color("Red"))
                         Image(systemName: "trash")
                             .background(Color("Red"))
+                            
+
                     })
-            
-            let _=print("in obvious")
+
             ForEach(userVM.UserCellViewModels){currentUser in
-                let _=print("running")
-                let _=print("userName: \(currentUser.user.userName)")
+//                let _1 = print("joejeo")
+//                let _3=print(userVM.UserCellViewModels.count)
+                
+              
+                
                 if((currentUser.user.userId)==userID){
-                    let _=print("user is:\(currentUser.user.userName)")
+//                    let _2=print("helloji")
                     settingsView(currentPerson: currentUser.user)
                         .tabItem({
                             Image(systemName:"gear")
@@ -814,4 +823,5 @@ struct mainView: View{
     
    
 }
+
 
