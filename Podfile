@@ -11,9 +11,6 @@ target 'FindAR (iOS)' do
   pod 'Firebase/Database'
   pod 'FirebaseFirestore'
   pod 'FirebaseFirestoreSwift'
-  pod 'Firebase/Storage'
-  pod 'SDWebImageSwiftUI'
-  pod 'GoogleSignIn'
 
 end
 

@@ -8,7 +8,6 @@
 import SwiftUI
 import FirebaseAuth
 import CoreTelephony
-import GoogleSignIn
 
 struct ContentView: View {
     @EnvironmentObject var viewModel: SignIn
@@ -298,6 +297,13 @@ struct Card: Identifiable {
 //            Card(name: "Bike", imageName: "bike", company: "Lifetime Fitness")]
 //
 //    }
+            
+
+        
+            
+    
+    
+    
 }
 
 
@@ -317,23 +323,38 @@ struct cardView: View{
     var body: some View {
         VStack{
         ZStack{
+            
+            
+                
+                
             ForEach(prodVM.ProductCellViewModels.reversed()) {product in
                 
                 let ___ = print("okok")
 //                let _ = stuff.append(product)
 //                let __ = print(stuff)
-                CardView(card: Card(name: product.product.productName, imageName: product.product.imageName,  company: product.product.company, prod: product.product))
+                CardView(card: Card(name: product.product.productName, imageName: "dumbbell",  company: product.product.company, prod: product.product))
             }
-        }.frame(width: 350, height:550, alignment: .center)
+            
+            
+        }.frame(width: 350, height: 550, alignment: .center)
         .padding(15)
         .zIndex(1.0)
         .offset(y: -50)
+        
+        
+        
         
             HStack{
                 Spacer()
                 Button(action: {//add a task button
                     
+                    
+                    
 //                    productRepo.addProduct(Product(productName: "dumbbells", company: "Lifetime Fitness", description: "20 lbs", category: "Workout items"))
+                    
+                    
+                    
+                    
                     
                     //TODO: uncomment later
                     ifAddProduct.toggle()
@@ -349,6 +370,7 @@ struct cardView: View{
                     .padding()
                     .shadow(color: Color.black.opacity(0.3), radius: 3, x: 3, y: 3)
                     .offset(x: -10, y: -50)
+                    
             }
         }
         .background(Rectangle()
@@ -356,7 +378,7 @@ struct cardView: View{
                         .frame(width: 1000, height: 1000))
         .sheet(isPresented: $ifAddProduct, content: {
             VStack{
-    
+            
             TextField("Product Name",text: $newProductName)
                 .disableAutocorrection(true)
                 .autocapitalization(.none)
@@ -383,6 +405,7 @@ struct cardView: View{
                 .foregroundColor(Color("DarkBlue"))
                 .background(Color("Blue"))
                 .padding()
+            
 //            Picker("Select a paint color", selection: $category) {
 //                            ForEach(categoriesTemp, id: \.self) {
 //                                Text($0)
@@ -419,6 +442,9 @@ struct cardView: View{
                 }
             }).pickerStyle(MenuPickerStyle())
                 .padding()
+                
+            
+
                Button(action: {
                    ifAddProduct.toggle()
                    //TODO: ADD THE PRODUCT TO FIREBASE
@@ -429,8 +455,9 @@ struct cardView: View{
                    print("test")
                    
                    //vraj here is new product newProd variable
-                   var newProd = Product(productName: newProductName, company: newCompany, description: newDescription, category: newCategory,usdzName:"", imageName:"")
+                   var newProd = Product(productName: newProductName, company: newCompany, description: newDescription, category: newCategory)
                    prodVM.addProduct(product: newProd)
+                 
                    
 //                    productRepo.addProduct(Product(productName: "dumbbells", company: "Lifetime Fitness", description: "20 lbs", category: "Workout items"))
                    
@@ -494,7 +521,7 @@ var products = [
     productListItems(name: "Book", desc: "You use this to train your eyes and knowledge", image: "book")
  
 ]
-public var productsList = [Product(id: "", productId: "", productName: "", company: "", description: "", category: "",usdzName: "",imageName: "")]
+public var productsList = [Product(id: "", productId: "", productName: "", company: "", description: "", category: "")]
 
 public var columns = Array(repeating: GridItem(.flexible(), spacing: 10), count: 2)
 
@@ -504,6 +531,8 @@ struct saveView: View{
      @State private var selNum = "";
     let spacing: CGFloat = 10
     @State private var numberOfRows = 2
+    @State private var show = false;
+    @State private var int = 0;
 
 
     var body: some View {
@@ -512,7 +541,15 @@ struct saveView: View{
             LazyVGrid(columns: columns, spacing: spacing) {
                 ForEach(0..<CardView.productList.count) { num in
                     if(CardView.productList[num].productName != ""){
-                    ItemView(product: CardView.productList[num])
+                        Button(action: {
+                            show = true;
+                            int = num;
+                            Swift.print("doggy")
+                            
+                        }) {
+                            ItemView(product: CardView.productList[num])
+
+                        }
                     }
                     
                 }
@@ -522,7 +559,33 @@ struct saveView: View{
 
         
             
-        }.background(Color.white)
+        } .background(Rectangle()
+            .foregroundColor(Color("Blue"))
+            .frame(width: 1000, height: 1000))
+            .sheet(isPresented: $show, content: {
+                          //let _=loadImageFromFirebase(name: card.prod.imageName)
+                          
+                                  VStack{
+                                      Text("**\(CardView.productList[int].productName)**")
+                                      
+
+                                      
+
+//                                      WebImage(url: imageURL!)
+//                                          .resizable()
+//                                          .clipped()
+//                                          .scaleEffect(x: 0.8, y: 0.5, anchor: .center)
+//
+
+                                      Text("Description: \(CardView.productList[int].description)")
+                                      Text("Catagory: \(CardView.productList[int].category)")
+                                  
+                              
+                          }
+            }
+                   )
+        
+        
             .onAppear(perform: print)
             }
     func print(){
@@ -530,6 +593,7 @@ struct saveView: View{
         Swift.print(CardView.productList)
     }
     
+  
     }
 struct ItemView: View{
     
@@ -559,12 +623,12 @@ struct ItemView: View{
 //    }
 }
 class ProductListModel: ObservableObject {
-    @Published var prodList: [Product] = [Product(id: "", productId: "", productName: "f", company: "", description: "", category: "",usdzName: "",imageName:"")]
+    @Published var prodList: [Product] = [Product(id: "", productId: "", productName: "f", company: "", description: "", category: "")]
 }
 struct Events: Identifiable{
     var id =  UUID()
     var name: String
-    var products: Array<String>
+    var products: Array<Int>
     var show: Bool?
 }
 struct eventView: View{
@@ -574,8 +638,11 @@ struct eventView: View{
     @State private var showEventAdd = false;
     @State private var eventInp: String = ""
     @State  private var prod: String = ""
-    @State var eventList = [Events(id: UUID(), name: "Birthday", products: ["Balloons", "Pinata"])]
-
+    @State var eventList = [Events(id: UUID(), name: "Birthday", products: [0,1])]
+    @State var prodPicked = false;
+    @State var indexes = [-1]
+    @State var breakHap = false
+    @State var prodNames = []
 
     var body: some View{
         
@@ -588,11 +655,22 @@ struct eventView: View{
                                             VStack{
                                                 ForEach(num.products, id: \.self) {
                                                             myData in
-                                                    Text("\(myData)")
-                                                        .font(.title3)
-                                                        .padding(.all)
+                                                    HStack{
+                                                        VStack(alignment: .leading){
+                                                            Text("\(CardView.productList[myData].productName)")
+                                                                .font(.system(size: 18, weight: .bold))
+                                                            Text("\(CardView.productList[myData].description)")
+                                                            
+                                                    }
+                                                        Spacer()
+                                                        
+                                                        Image("treadmill")
+                                                            .resizable()
+                                                            .frame(width: 100, height: 100)
+                                                            .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
+                                                    }
                                                         .onTapGesture {
-                                                            self.selNum = myData
+                                                            self.selNum = "myData"
                                                         withAnimation{
                                                             self.isExpanded
                                                             .toggle()
@@ -614,7 +692,7 @@ struct eventView: View{
            
             Button(action: {
                 showEventAdd = true;
-                viewModel.prodList.append(Product(id: "", productId: "", productName: "h", company: "", description: "", category: "",usdzName:"",imageName:""))
+                viewModel.prodList.append(Product(id: "", productId: "", productName: "h", company: "", description: "", category: ""))
             }, label: {
                 Text("+")
                     .font(.system(.largeTitle))
@@ -632,12 +710,32 @@ struct eventView: View{
                                         .foregroundColor(Color("Blue"))
                                         .frame(width: 1000, height: 1000))
             .sheet(isPresented: $showEventAdd, content: {
+        
                 VStack(){
                     Spacer()
                 TextField("Add Event Here", text: $eventInp)
-                    TextField("Enter Product", text: $prod)
-                        
                     
+                    
+                    Text(prodNames.description)
+                    Button(action: {
+                        prodNames.removeAll()
+                        indexes.removeAll()
+                    }, label: {
+                        Text("Clear")
+                    })
+                    
+                    
+                    
+                    Button(action: {
+                        showEventAdd = true;
+                        viewModel.prodList.append(Product(id: "", productId: "", productName: "h", company: "", description: "", category: ""))
+                    }, label: {
+                        Text("+")
+                            .font(.system(.largeTitle))
+                            .frame(width: 77, height: 70)
+                            .foregroundColor(Color.white)
+                            .padding(.bottom, 7)
+                    })
                     NavigationView{
                     List{
                         ForEach(0..<CardView.productList.count) { num in
@@ -646,6 +744,7 @@ struct eventView: View{
                                     Text("\(CardView.productList[num].productName)")
                                         .font(.system(size: 18, weight: .bold))
                                     Text("\(CardView.productList[num].description)")
+                                    
                             }
                                 Spacer()
                                 
@@ -654,11 +753,47 @@ struct eventView: View{
                                     .frame(width: 100, height: 100)
                                     .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
                                
+                                Button(action: {
+                                   print(num)
+                                    //save this
+//                                    if( indexes.count > 0){
+//                                    for ind in 0...indexes.count-1 {
+//                                        if (indexes[ind] as! Int == num){
+//                                            indexes.remove(at: ind)
+//                                            breakHap = true;
+//                                            break
+//                                        }
+//                                        breakHap = false
+//                                    }
+//                                    }
+//                                    if (!breakHap){
+//                                        indexes.append(num)
+//                                    }
+//                                    if(breakHap && indexes.isEmpty){
+//                                        indexes.append(num)
+//                                    }
+                                    if(!indexes.isEmpty){
+                                    for ind in 0...indexes.count-1 {
+                                        if (indexes[ind] as! Int == num){
+                                            breakHap = true
+                                            break
+                                        } else {
+                                            breakHap = false
+                                        }
+                                    }
+                                    }
+                                    if(!breakHap || indexes.isEmpty){
+                                        indexes.append(num)
+                                        prodNames.append(CardView.productList[num].productName)
+                                    }
+                                    print(indexes)
+                                
+                                }) {
+                                    Text("Pick")
+                                }
                                 
                             }
-                            .onTapGesture {
-                                
-                            }
+                           
                             
                     }
                     }.navigationBarTitle("Products")
@@ -667,7 +802,16 @@ struct eventView: View{
                     
                 }
                     Button(action: {
-                        eventList.append(Events(id: UUID(), name: eventInp, products: [prod]))
+                        for i in 0...indexes.count-1{
+                            print(indexes.count)
+                            if (indexes[i] == -1){
+                                indexes.remove(at: i)
+                                break
+
+                            }
+                        }
+                        
+                        eventList.append(Events(id: UUID(), name: eventInp, products: indexes))
                         showEventAdd = false;
                     }) {
                         Text("Create Event")
@@ -675,9 +819,19 @@ struct eventView: View{
                        
                         
                 }
+                //.onAppear(perform: delete)
             })
+      
     }
-   
+//    func delete(){
+//        for num in CardView.productList{
+//            if(num.productName = ""){
+//                CardView.productList.remove
+//            }
+//
+//
+//        }
+//    }
 }
 
  
